@@ -1,0 +1,40 @@
+# @name connect
+POST http://localhost:3000/mcp?transportType=streamable-http
+Content-Type: application/json
+Accept: application/json, text/event-stream
+
+{
+    "method": "initialize",
+    "params": {
+        "protocolVersion": "2025-03-26",
+        "capabilities": {
+            "sampling": {},
+            "roots": {
+                "listChanged": true
+            }
+        },
+        "clientInfo": {
+            "name": "mcp-inspector",
+            "version": "0.13.0"
+        }
+    },
+    "jsonrpc": "2.0",
+    "id": 0
+}
+
+###
+# @ref connect
+POST http://localhost:3000/mcp
+accept: application/json, text/event-stream
+content-type: application/json
+mcp-session-ida: aaa
+mcp-session-id: {{connect.response.headers.mcp-session-id}}
+
+{
+    "method":"notifications/initialized",
+    "jsonrpc":"2.0"
+}
+
+
+###
+# @name disconnect

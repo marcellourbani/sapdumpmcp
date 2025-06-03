@@ -1,0 +1,7 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "ts",
+    "exec": "fuser -k 3000/tcp; npm run build && node --inspect=9231 build/index.js"
+}

@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [
+        {
+          "base": "$tsc",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "restarting due to changes",
+            "endsPattern": "MCP server is running"
+          }
+        }
+      ],
+      "isBackground": true,
+      "label": "nodemon",
+      "detail": "nodemon"
+    },
+    {
+      "type": "npm",
+      "script": "inspect",
+      "problemMatcher": [
+        {
+          "base": "$tsc",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "Starting MCP inspector",
+            "endsPattern": "MCP Inspector is up and running"
+          }
+        }
+      ],
+      "isBackground": true,
+      "label": "inspect"
+    },
+    {
+      "type": "shell",
+      "label": "dev",
+      "dependsOn": ["nodemon", "inspect"]
+    }
+  ]
+}
