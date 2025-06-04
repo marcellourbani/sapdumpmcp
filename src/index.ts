@@ -7,45 +7,7 @@ import {
   ReadResourceRequestSchema
 } from "@modelcontextprotocol/sdk/types.js"
 import { v4 } from "uuid"
-import { z } from "zod"
-
-const createServer = () => {
-  const server = new Server(
-    {
-      name: "sapdump-mcp-server",
-      version: "1.0.0"
-    },
-    {
-      capabilities: {
-        resources: {},
-        tools: {}
-      }
-    }
-  )
-
-  server.setRequestHandler(ListResourcesRequestSchema, async () => {
-    return {
-      resources: [
-        {
-          uri: "file:///Users/Documents/my-mcp-server/logs.txt",
-          name: "Application Logs",
-          mimeType: "text/plain"
-        }
-      ]
-    }
-  })
-
-  // Read resource contents
-  server.setRequestHandler(ReadResourceRequestSchema, async request => {
-    const uri = request.params.uri
-    if (uri === "file:///Users/Documents/my-mcp-server/logs.txt") {
-      const logContents = "dummy log entry"
-      return { contents: [{ uri, mimeType: "text/plain", text: logContents }] }
-    }
-    throw new Error("Resource not found")
-  })
-  return server
-}
+import { createServer } from "./mcpserver.js"
 
 const app = express()
 app.use(express.json())
@@ -65,7 +27,7 @@ const getTransport = async (sessionId: string, body: unknown) => {
   newTransport.onclose = () =>
     newTransport.sessionId && transports.delete(newTransport.sessionId)
 
-  const server = createServer()
+  const server = await createServer()
   await server.connect(newTransport)
 
   return newTransport
