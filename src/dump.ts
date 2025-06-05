@@ -2,6 +2,13 @@ import { ADTClient, Dump } from "abap-adt-api"
 import { config } from "dotenv"
 config()
 
+export type SapDump = {
+  id: string
+  text: string
+  error: string
+  program: string
+}
+
 const createClient = async () => {
   const url = process.env.ABAP_ADT_URL
   const user = process.env.ABAP_ADT_USER
@@ -16,21 +23,34 @@ const createClient = async () => {
   return client
 }
 
-const formatDump = (dump: Dump) => {
+const formatDump = (dump: Dump): SapDump => {
   const { id, text } = dump
   const error =
     dump.categories.find(c => c.label.match(/error/))?.term || "Unknown error"
   const program =
     dump.categories.find(c => c.label.match(/program/))?.term ||
     "Unknown program"
-  return { id, text, error, program }
+  return { id: decodeURIComponent(id), text, error, program }
 }
 
 class DumpService {
   constructor(private client: ADTClient) {}
-  public listDumps = async () => {
-    const dumps = await this.client.dumps()
-    return dumps.dumps.map(d => formatDump(d))
+  private dumps: SapDump[] = []
+  public listDumps = async (refresh = false) => {
+    if (this.dumps.length === 0 || refresh) {
+      const dumps = await this.client.dumps()
+      this.dumps = dumps.dumps.map(d => formatDump(d))
+    }
+    return this.dumps
+  }
+
+  public getDump = async (id: string) => {
+    const found = this.dumps.find(d => d.id === id)
+    if (found) return found
+    const dumps = await this.listDumps(true)
+    const dump = dumps.find(d => d.id === id)
+    if (!dump) throw new Error(`Dump with ID ${id} not found`)
+    return dump
   }
 }
 

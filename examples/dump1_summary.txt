@@ -1,0 +1,1805 @@
+----------------------------------------------------------------------------------------------------
+Category               ABAP programming error                                                 
+Runtime Errors         OBJECTS_OBJREF_NOT_ASSIGNED                                                  
+Except.                CX_SY_REF_IS_INITIAL                                                         
+ABAP Program           ZABAPGIT                                                                     
+Application Component  Not assigned                                                                 
+Date and Time          03.06.2025 23:21:06 (UTC)                                                 
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Short Text                                                                                        |
+|    Access using a 'ZERO' object reference is not possible.                                       |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|What happened?                                                                                    |
+|    Error in the ABAP application program.                                                        |
+|                                                                                                  |
+|    The current ABAP program "ZABAPGIT" had to be terminated because it found a                   |
+|    statement that could not be executed.                                                         |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|What can you do?                                                                                  |
+|    Note which actions and entries caused the error to occur.                                     |
+|                                                                                                  |
+|    Consult your SAP administrator.                                                               |
+|                                                                                                  |
+|    Using transaction ST22 for ABAP dump analysis, you can view, manage,                          |
+|    and retain termination messages for longer periods.                                           |
+|    Note which actions and entries caused the error to occur.                                     |
+|                                                                                                  |
+|    Consult your SAP administrator.                                                               |
+|                                                                                                  |
+|    Using transaction ST22 for ABAP dump analysis, you can view, manage,                          |
+|    and retain termination messages for longer periods.                                           |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Error analysis                                                                                    |
+|    An exception has occurred in class "CX_SY_REF_IS_INITIAL". This exception was                 |
+|     not caught                                                                                   |
+|    in procedure "EXIT" "(FORM)" or propagated by a RAISING clause.                               |
+|    Since the caller of the procedure could not have anticipated this                             |
+|    exception, the current program was terminated.                                                |
+|    The reason for the exception occurring was:                                                   |
+|    The reason for the exception is:                                                              |
+|    You are trying to access a component with a 'ZERO' object reference                           |
+|    (points to 'nothing'). Variable: "%_##TVREG_001".                                             |
+|    An object reference must point to an object (an instance of a class)                          |
+|    before it can be used to access a component. The reference has either                         |
+|    never been set, or it was set to 'ZERO' with a CLEAR statement.                               |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|How to correct the error                                                                          |
+|    If the exception cannot be prevented, "CX_SY_REF_IS_INITIAL" must be caught                   |
+|     within                                                                                       |
+|    procedure "EXIT" "(FORM)" or declared in the procedure's RAISING clause.                      |
+|    To prevent the exception, note the following:                                                 |
+|                                                                                                  |
+|                                                                                                  |
+|    If the error occurs in a non-modfied SAP program, you might be able to                        |
+|    find a solution in the SAP Notes system. If you have access to the SAP                        |
+|    Notes system, check there first using the following keywords:                                 |
+|                                                                                                  |
+|    "OBJECTS_OBJREF_NOT_ASSIGNED" CX_SY_REF_IS_INITIAL                                            |
+|    "ZABAPGIT" bzw. ZABAPGIT_FORMS                                                                |
+|    "EXIT"                                                                                        |
+|    If you cannot solve the problem yourself, please send the following                           |
+|    information to SAP:                                                                           |
+|                                                                                                  |
+|    1. The description of the problem (short dump)                                                |
+|    Please press the "Local File” button in the current display.                                  |
+|                                                                                                  |
+|    2. The relevant system log                                                                    |
+|    To do this, call the system log in transaction SM21. Restrict the time                        |
+|    interval to ten minutes before the short dump and five minutes after                          |
+|    it. In the display, choose System -> List -> Save -> Local File                               |
+|    (unconverted).                                                                                |
+|                                                                                                  |
+|    3. If these are programs of your own, or modified SAP programs: The                           |
+|    source text of the programs                                                                   |
+|    To do this, please choose                                                                     |
+|    "Other Utilities -> Upload/Download -> Download".                                             |
+|                                                                                                  |
+|    4. Details regarding the conditionsunder which the error occurred or                          |
+|    which actions and input caused the error.                                                     |
+|    which actions and input caused the error.                                                     |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|System environment                                                                                |
+|    SAP Release..... 757                                                                          |
+|    SAP Basis level 0004                                                                          |
+|                                                                                                  |
+|    Application server... vhcala4hci                                                              |
+|    Instance name....... vhcala4hci_A4H_00                                                        |
+|    Network address...... 172.17.0.3                                                              |
+|    Operating system... Linux                                                                     |
+|    Release.............. 6.14.7-arch2-1                                                          |
+|    Hardware type....... x86_64                                                                   |
+|    Character length..... 16 Bits                                                                 |
+|    Pointer length........ 64 Bits                                                                |
+|    Work process number... 6                                                                      |
+|    Work process ID....... 2706                                                                   |
+|    ABAP load version.... 3236                                                                    |
+|    Shortdump setting. full                                                                       |
+|                                                                                                  |
+|    Database server... vhcala4hci                                                                 |
+|    Database type..... HDB                                                                        |
+|    Database name..... A4H                                                                        |
+|    Database user ID SAPA4H                                                                       |
+|                                                                                                  |
+|    Terminal.......... marcellox15bis                                                             |
+|                                                                                                  |
+|    Character set C                                                                               |
+|                                                                                                  |
+|    SAP kernel....... 793                                                                         |
+|    Created on....... Jun 28 2024 10:32:12                                                        |
+|    Created at....... Linux GNU SLES-15 x86_64  cc10.3.0 use-pr240628                             |
+|    Database version SQLDBC 2.05.111.1600459197                                                   |
+|    Patch level....... 100                                                                        |
+|    Patch text.......                                                                             |
+|    Hash............. c162fabb514091dbaecf4db443c7145e633a7121                                    |
+|    Version.......... v7.93-3460-gc162fabb-dirty                                                  |
+|                                                                                                  |
+|    Database............. HANA 1.0, HANA 2.0                                                      |
+|    SAP database version. 793                                                                     |
+|    Operating system... Linux,   GitVers: v7.93-3460-gc162fabb-dirty,   GitHash:                  |
+|     c162fabb514091dbaecf4db443c7145e633a7121                                                     |
+|                                                                                                  |
+|    Memory consumption                                                                            |
+|    EM...... 18943368                                                                             |
+|    Heap.... 0                                                                                    |
+|    Page.... 57344                                                                                |
+|    MM used. 8102408                                                                              |
+|    MM free. 3597216                                                                              |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|User and Transaction                                                                              |
+|    Client................. 001                                                                   |
+|    User.................. DEVELOPER                                                              |
+|    Language key.......... E                                                                      |
+|    Transaction......... ZABAPGIT                                                                 |
+|    Transaction ID...... 4DD97CCD6B390000E006836C7AE0D9BA                                         |
+|                                                                                                  |
+|    EPP Root Context ID.... 6EB38C17E92A1FE0909A23D4C863BE17                                      |
+|    EPP Connection ID...... 00000000000000000000000000000000                                      |
+|    EPP Connection Counter. 0                                                                     |
+|    EPP Component Name..... A4H/vhcala4hci_A4H_00                                                 |
+|                                                                                                  |
+|    Program....................... ZABAPGIT                                                       |
+|    Screen......................... ZABAPGIT                                1001                  |
+|    Screen line.................... 13                                                            |
+|    Debugger interpretor loop... "(TPDA)"                                                         |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Chain of Exception Objects                                                                        |
+----------------------------------------------------------------------------------------------------
+|Level        Class                                                                                |
+|Attrib. Name                   Value                                                              |
+----------------------------------------------------------------------------------------------------
+|1            CX_SY_REF_IS_INITIAL                                                                 |
+|(Program)                      ZABAPGIT                                                           |
+|(Include)                      ZABAPGIT_FORMS                                                     |
+|(Row)                          301                                                                |
+|(Short Text)                   Dereferencing of the NULL reference                                |
+|(Long Text)                    An attempt was made to execute a dynamic method callon an          |
+|                               initial(NULL-) object reference. The reference must refer to an    |
+|                               object.                                                            |
+|IS_RESUMABLE                                                                                      |
+|KERNEL_ERRID                                                                                      |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Information on where terminated                                                                   |
+|    The termination occurred in ABAP program or include "ZABAPGIT", in "EXIT". The                |
+|    main program was "ZABAPGIT".                                                                  |
+|                                                                                                  |
+|    In the source code, the termination point is in line 301 of include                           |
+|     "ZABAPGIT_FORMS".                                                                            |
+|    include "ZABAPGIT_FORMS".                                                                     |
+|    The termination is due to exception "CX_SY_REF_IS_INITIAL" occurring in                       |
+|     procedure "EXIT" "(FORM)",                                                                   |
+|    but not being handled locally there or being declared in the RAISING                          |
+|    clause.                                                                                       |
+|    The procedure is in program "ZABAPGIT". Its source code begins in line 287 of                 |
+|    include "ZABAPGIT_FORMS".                                                                     |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Source Code Extract                                                                               |
+----------------------------------------------------------------------------------------------------
+|Line |Code                                                                                        |
+----------------------------------------------------------------------------------------------------
+|  271|      p_status  = sy-pfkey                                                                  |
+|  272|    TABLES                                                                                  |
+|  273|      p_exclude = lt_ucomm.                                                                 |
+|  274|                                                                                            |
+|  275|  " For variant maintenance we have to omit this because                                    |
+|  276|  " it instantiates controls and hides maintenance screens.                                 |
+|  277|  IF zcl_abapgit_factory=>get_environment( )->is_variant_maintenance( ) = abap_false.       |
+|  278|    TRY.                                                                                    |
+|  279|        zcl_abapgit_ui_factory=>get_gui( )->set_focus( ).                                   |
+|  280|      CATCH zcx_abapgit_exception INTO lx_error.                                            |
+|  281|        MESSAGE lx_error TYPE 'S' DISPLAY LIKE 'E'.                                         |
+|  282|    ENDTRY.                                                                                 |
+|  283|  ENDIF.                                                                                    |
+|  284|                                                                                            |
+|  285|ENDFORM.                                                                                    |
+|  286|                                                                                            |
+|  287|FORM exit.                                                                                  |
+|  288|                                                                                            |
+|  289|  DATA lx_error TYPE REF TO zcx_abapgit_exception.                                          |
+|  290|                                                                                            |
+|  291|  " The exit logic should only be applied for our 'main' selection screen 1001.             |
+|  292|  " All other selection-screens are called as popups and shouldn't influence                |
+|  293|  " the gui navigation as it would lead to unpredictable behaviour like dumps.              |
+|  294|  IF sy-dynnr <> 1001.                                                                      |
+|  295|    RETURN.                                                                                 |
+|  296|  ENDIF.                                                                                    |
+|  297|                                                                                            |
+|  298|  TRY.                                                                                      |
+|  299|      CASE sy-ucomm.                                                                        |
+|  300|        WHEN 'CBAC' OR 'CCAN'.  "Back & Escape                                              |
+|>>>>>|          IF zcl_abapgit_ui_factory=>get_gui( )->back( iv_graceful = abap_true ) = abap_tru\|
+|e. " end of stack                                                                                 |
+|  302|            zcl_abapgit_ui_factory=>get_gui( )->free( ). " Graceful shutdown                |
+|  303|          ELSE.                                                                             |
+|  304|            LEAVE TO SCREEN 1001.                                                           |
+|  305|          ENDIF.                                                                            |
+|  306|      ENDCASE.                                                                              |
+|  307|    CATCH zcx_abapgit_exception INTO lx_error.                                              |
+|  308|      MESSAGE lx_error TYPE 'S' DISPLAY LIKE 'E'.                                           |
+|  309|  ENDTRY.                                                                                   |
+|  310|                                                                                            |
+|  311|ENDFORM.                                                                                    |
+|  312|                                                                                            |
+|  313|FORM adjust_toolbar USING pv_dynnr TYPE sy-dynnr.                                           |
+|  314|                                                                                            |
+|  315|  DATA: ls_header               TYPE rpy_dyhead,                                            |
+|  316|        lt_containers           TYPE dycatt_tab,                                            |
+|  317|        lt_fields_to_containers TYPE dyfatc_tab,                                            |
+|  318|        lt_flow_logic        TYPE swydyflow,                                                |
+|  319|        lv_no_toolbar           LIKE ls_header-no_toolbar.                                  |
+|  320|                                                                                            |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Contents of system fields                                                                         |
+----------------------------------------------------------------------------------------------------
+|Name    |Val.                                                                                     |
+----------------------------------------------------------------------------------------------------
+|SY-SUBRC|0                                                                                        |
+|SY-INDEX|0                                                                                        |
+|SY-TABIX|1                                                                                        |
+|SY-DBCNT|0                                                                                        |
+|SY-FDPOS|40                                                                                       |
+|SY-LSIND|0                                                                                        |
+|SY-PAGNO|0                                                                                        |
+|SY-LINNO|1                                                                                        |
+|SY-COLNO|1                                                                                        |
+|SY-PFKEY|%_CS                                                                                     |
+|SY-UCOMM|CBAC                                                                                     |
+|SY-TITLE|abapGit                                                                                  |
+|SY-MSGTY|                                                                                         |
+|SY-MSGID|                                                                                         |
+|SY-MSGNO|000                                                                                      |
+|SY-MSGV1|                                                                                         |
+|SY-MSGV2|                                                                                         |
+|SY-MSGV3|                                                                                         |
+|SY-MSGV4|                                                                                         |
+|SY-MODNO|0                                                                                        |
+|SY-DATUM|20250603                                                                                 |
+|SY-UZEIT|232031                                                                                   |
+|SY-XPROG|SAPCNVE                                                                                  |
+|SY-XFORM|CONVERSION_EXIT                                                                          |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Active Calls/Events                                                                               |
+----------------------------------------------------------------------------------------------------
+|No.   Ty.          Program                             Include              Line                  |
+|      Name                                                                                        |
+----------------------------------------------------------------------------------------------------
+|    7 FORM         ZABAPGIT                            ZABAPGIT_FORMS                        301  |
+|      EXIT                                                                                        |
+|    6 FORM         ZABAPGIT                            ZABAPGIT                 74                |
+|      %_SEL_SCREEN_%_EXCOM_%                                                                      |
+|    5 FORM         RSDBRUNT                            RSDBRUNT                             5251  |
+|      %_BACK_1000                                                                                 |
+|    4 MODULE (PAI) ZABAPGIT                            <REPINI>                               21  |
+|      %_BACK                                                                                      |
+|    3 FORM         ZABAPGIT                            ZABAPGIT_FORMS                        253  |
+|      OPEN_GUI                                                                                    |
+|    2 FORM         ZABAPGIT                            ZABAPGIT_FORMS                        222  |
+|      RUN                                                                                         |
+|    1 EVENT        ZABAPGIT                            ZABAPGIT                 62                |
+|      START-OF-SELECTION                                                                          |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Chosen Variables                                                                                  |
+----------------------------------------------------------------------------------------------------
+|Name                                                                                              |
+|    Val.                                                                                          |
+----------------------------------------------------------------------------------------------------
+|No.       7 Ty.          FORM                                                                     |
+|Name  EXIT                                                                                        |
+----------------------------------------------------------------------------------------------------
+|SY                                                                                                |
+|    {0;0;1;1;0;0;0;0;0;0;0;40;1;0;1;100;0;0;0;44;0;0;0;0;4;0;0;0;0;0;0;0;0;0;0;0;0;0;27;238;0;11;\|
+|0;0;;I;0000;2;0;0;;;;E;0;;;;1001;;;;;;0;D$S;001;;;0;0;;;;;;;;;;00;;;;;;;;;;;;000;;;;;;;;;HDB;;;A4\|
+|H;Linux;%_CS;757;ZABAPGIT;CBAC;;;0000000000;0000000000;;00000000;                                 |
+|    000000000000000000000000000000000000000000002000000000000000600000000000000020000000000000000\|
+|000000000000000000000000000000000000000000000000000000000001000E000000000000000000020400000000000\|
+|00002020204000000020202030303030202020202020202000000040205020202                                 |
+|    0000000010001000000000000000000000000000000080001000000010004000000000000000C0000000000000000\|
+|00040000000000000000000000000000000000000000000000000000000B000E0000000B0000000000000900020000C00\|
+|00C00000005000000000000010000010000000000000000000000040403000000                                 |
+|    000000000000000001000000010000000000000000000000000000000000000000000000000000000000000028000\|
+|000010000000000000001000000640000000000000000000000000000002C000000000000000000000000000000000000\|
+|0004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|000000000000000001B000000EE000000000000000B000000000000000000000020004900000002000000000C00000000\|
+|0C00200020002000450000000000000020002000200031003000300031002000200020002000200020002000200000000\|
+|00000004400240053002000200020                                                                     |
+|SY-DYNNR                                                                                          |
+|    1001                                                                                          |
+|    3333                                                                                          |
+|    1001                                                                                          |
+|    0000                                                                                          |
+|    0000                                                                                          |
+|    3100300030003100                                                                              |
+|SYST-REPID                                                                                        |
+|    ZABAPGIT                                                                                      |
+|    5444544522222222222222222222222222222222                                                      |
+|    A121079400000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    5A0041004200410050004700490054002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000                               |
+|SY-REPID                                                                                          |
+|    ZABAPGIT                                                                                      |
+|    5444544522222222222222222222222222222222                                                      |
+|    A121079400000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    5A0041004200410050004700490054002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000                               |
+|SY-UCOMM                                                                                          |
+|    CBAC                                                                                          |
+|    4444222222222222222222222222222222222222222222222222222222222222222222                        |
+|    3213000000000000000000000000000000000000000000000000000000000000000000                        |
+|    0000000000000000000000000000000000000000000000000000000000000000000000                        |
+|    0000000000000000000000000000000000000000000000000000000000000000000000                        |
+|    430042004100430020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000        |
+|SSCRTEXTS                                                                                         |
+|    {;;;;;}                                                                                       |
+|    202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|%_##TVREG_001                                                                                     |
+|    {O:initial}                                                                                   |
+|    F0000000                                                                                      |
+|    F0000000                                                                                      |
+|    FF00000000000000                                                                              |
+|%_DUMMY$$                                                                                         |
+|                                                                                                  |
+|    2222                                                                                          |
+|    0000                                                                                          |
+|    0000                                                                                          |
+|    0000                                                                                          |
+|    2000200020002000                                                                              |
+|%_SPACE                                                                                           |
+|                                                                                                  |
+|    2                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    2000                                                                                          |
+|ABAP_TRUE                                                                                         |
+|    X                                                                                             |
+|    5                                                                                             |
+|    8                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    5800                                                                                          |
+|%_##TVREG_002                                                                                     |
+|                                                                                                  |
+|    2                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    2000                                                                                          |
+|SY-BATCH                                                                                          |
+|                                                                                                  |
+|    2                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    2000                                                                                          |
+|%_SSCR[]                                                                                          |
+|    Table IT_1[23x492]                                                                            |
+|    \PROGRAM=ZABAPGIT\DATA=%_SSCR[]                                                               |
+|    Table reference: 0                                                                            |
+|    TABH+ 0(20) = 807AAA77167F0000000000000000000000000000                                        |
+|    TABH+20(20) = 0000000000000000000000001700000044040000                                        |
+|    TABH+40(20) = 00000000000000000100000017000000EC010000                                        |
+|    TABH+60(20) = FFFFFFFF04000000C00001001700400602000000                                        |
+|    store                   = 0x807AAA77167F0000                                                  |
+|    statScndKeyAdmin    = 0x0000000000000000                                                      |
+|    ext1                    = 0x0000000000000000                                                  |
+|    ----- Primary Key -----                                                                       |
+|    idxPtr                  = 0x0000000000000000                                                  |
+|      idxKind               = 0     (ItIndexNone)                                                 |
+|      accKind    = 1     (ItAccStandard)                                                          |
+|      uniKind               = 2     (ItUniNo)                                                     |
+|      keyKind (from pbag)   = 1     (default)                                                     |
+|      cmpMode               = 8     (cmpManyEq)                                                   |
+|    shmId                   = 0     (0x00000000)                                                  |
+|    id    = 0     (0x00000000)                                                                    |
+|    label                   = 1     (0x01000000)                                                  |
+|    fill                    = 23    (0x17000000)                                                  |
+|    leng                    = 492   (0xEC010000)                                                  |
+|    loop                    = -1    (0xFFFFFFFF)                                                  |
+|    xtyp    = PROG#000000/TYPE#000005                                                             |
+|    occu                    = 23    (0x17000000)                                                  |
+|    occu0                   = 0                                                                   |
+|    stMode                  = 0                                                                   |
+|    groupCntl               = 0                                                                   |
+|    rfc    = 0                                                                                    |
+|    unShareable             = 0                                                                   |
+|    mightBeShared           = 1                                                                   |
+|    sharedWithShmTab        = 0                                                                   |
+|    isShmLockId             = 0                                                                   |
+|    isUsed    = 1                                                                                 |
+|    isCtfyAble              = 1                                                                   |
+|    hasScndKeys             = 0                                                                   |
+|    hasRowId                = 0                                                                   |
+|    statScndKeysOutdated    = 0                                                                   |
+|    statScndUniKeysOutdated = 0                                                                   |
+|    primKeyIsEmpty          = ItPrimKeyIsEmptyNo                                                  |
+|    rtmSelectNoOrderBy      = 0                                                                   |
+|    tstForceExtSort         = 0                                                                   |
+|    ----- Shareable Table Header Data (Store) -----                                               |
+|    tabi    = 0x8027AD77167F0000                                                                  |
+|    pgHook                  = 0x0000000000000000                                                  |
+|    uniqueNumber            = 2     (0x02000000)                                                  |
+|    shmTabhSet              = 0x0000000000000000                                                  |
+|    refCount                = 2     (0x02000000)                                                  |
+|    tstRefCount    = 0     (0x00000000)                                                           |
+|    lineAdmin               = 23    (0x17000000)                                                  |
+|    lineAlloc               = 23    (0x17000000)                                                  |
+|    shmVersId               = 0     (0x00000000)                                                  |
+|    shmRefCount             = 3     (0x03000000)                                                  |
+|    rowId    = 18446744073709551615                                                               |
+|                                                                                                  |
+|    {%_SC1001;1001000;R;0;;;;;;A;0;0;;;;;;00;00;20;00}                                            |
+|    205050403030303024005020000020202020202020202020202020202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    50F030301000001086F02000000000000000000000000000000000000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    25005F0053004300310030003000310028460F0052002000000000002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|                                                                                                  |
+|    {%_SC1001;1001001;R;0;;;;;;E;0;0;;;;;;00;00;20;00}                                            |
+|    205050403030303024005020000020202020202020202020202020202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    50F030301000001096F02000000000000000000000000000000000000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    25005F0053004300310030003000310029460F0052002000000000002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|                                                                                                  |
+|    {%_SC1002;1002000;R;0;;;SC_TITLE;;;A;0;0;;;;;;00;00;20;00}                                    |
+|    205050403030303014005020000020202020205040505040504040202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    50F03030100000200AF02000000000000000003030F0409040C050000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    25005F00530043003100300030003200104A0F00520020000000000020002000200020002000530043005F0054004\|
+|90054004C0045002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|                                                                                                  |
+|    {%_SKP001;1002001;B;0;;;;;;1;0;0;;;;;;00;00;20;00}                                            |
+|    205050405030303014004020000020202020202020202020202020202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    50F030B0000000101AF02000000000000000000000000000000000000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    25005F0053004B005000300030003100114A0F0042002000000000002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|                                                                                                  |
+|    {%_BEG002;1002002;L;0;;;;;;A;0;0;;;;;;00;00;20;00}                                            |
+|    205040404030303014004020000020202020202020202020202020202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    50F02050700000202AF0C000000000000000000000000000000000000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    25005F00420045004700300030003200124A0F004C002000000000002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+----------------------------------------------------------------------------------------------------
+|No.       6 Ty.          FORM                                                                     |
+|Name  %_SEL_SCREEN_%_EXCOM_%                                                                      |
+----------------------------------------------------------------------------------------------------
+|No.       5 Ty. FORM                                                                              |
+|Name  %_BACK_1000                                                                                 |
+----------------------------------------------------------------------------------------------------
+|OPTION_CP_NP                                                                                      |
+|    @@                                                                                            |
+|    44                                                                                            |
+|    00                                                                                            |
+|    4040                                                                                          |
+|SY-SUBTY                                                                                          |
+|    #                                                                                             |
+|    0                                                                                             |
+|    4                                                                                             |
+|    04                                                                                            |
+|CV_SUBTY_VIA_SELSCR                                                                               |
+|    #                                                                                             |
+|    0                                                                                             |
+|    4                                                                                             |
+|    04                                                                                            |
+|CURRENT_SCREEN-PROGRAM                                                                            |
+|    ZABAPGIT                                                                                      |
+|    5444544522222222222222222222222222222222                                                      |
+|    A121079400000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    5A0041004200410050004700490054002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000                               |
+|SY-REPID                                                                                          |
+|    RSDBRUNT                                                                                      |
+|    5544554522222222222222222222222222222222                                                      |
+|    234225E400000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    5200530044004200520055004E0054002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000                               |
+|<SSCRFIELDS>-UCOMM                                                                                |
+|    CBAC                                                                                          |
+|    4444222222222222222222222222222222222222222222222222222222222222222222                        |
+|    3213000000000000000000000000000000000000000000000000000000000000000000                        |
+|    0000000000000000000000000000000000000000000000000000000000000000000000                        |
+|    0000000000000000000000000000000000000000000000000000000000000000000000                        |
+|    430042004100430020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000        |
+|<SSCRFIELDS>-UCOMM                                                                                |
+|    CB                                                                                            |
+|    44                                                                                            |
+|    32                                                                                            |
+|    00                                                                                            |
+|    00                                                                                            |
+|    43004200                                                                                      |
+|SPACE                                                                                             |
+|                                                                                                  |
+|    2                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    2000                                                                                          |
+|RSVUVINT                                                                                          |
+|    {;;}                                                                                          |
+|    2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020|
+|    0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000|
+|    200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000   |
+|VSCR_INDEX                                                                                        |
+|    0                                                                                             |
+|    0000                                                                                          |
+|    0000                                                                                          |
+|    00000000                                                                                      |
+|%_SSCR[]                                                                                          |
+|    Table IT_1[23x492]                                                                            |
+|%_SSCR                                                                                            |
+|    {%_SC1002;1002000;R;0;;;SC_TITLE;;;A;0;0;;;;;;00;00;20;00}                                    |
+|    205050403030303014005020000020202020205040505040504040202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    50F03030100000200AF02000000000000000003030F0409040C050000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    25005F00530043003100300030003200104A0F00520020000000000020002000200020002000530043005F0054004\|
+|90054004C0045002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|DYN_SEL-TEXPR                                                                                     |
+|    Table[initial]                                                                                |
+|                                                                                                  |
+|%_RKEY                                                                                            |
+|    {ZABAPGIT;}                                                                                   |
+|    504040405040405020202020202020202020202020202020202020202020202020202020202020202020202020202\|
+|020202020202020                                                                                   |
+|    A01020100070904000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|000000000000000                                                                                   |
+|    5A0041004200410050004700490054002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|00200020002000200020002000                                                                        |
+|SY                                                                                                |
+|    {0;0;1;1;0;0;0;0;0;0;0;40;1;0;1;100;0;0;0;44;0;0;0;0;4;0;0;0;0;0;0;0;0;0;0;0;0;0;27;238;0;11;\|
+|0;0;;I;0000;2;0;0;;;;E;0;;;;1001;;;;;;0;D$S;001;;;0;0;;;;;;;;;;00;;;;;;;;;;;;000;;;;;;;;;HDB;;;A4\|
+|H;Linux;%_CS;757;ZABAPGIT;CBAC;;;0000000000;0000000000;;00000000;                                 |
+|    000000000000000000000000000000000000000000002000000000000000600000000000000020000000000000000\|
+|000000000000000000000000000000000000000000000000000000000001000E000000000000000000020400000000000\|
+|00002020204000000020202030303030202020202020202000000040205020202                                 |
+|    0000000010001000000000000000000000000000000080001000000010004000000000000000C0000000000000000\|
+|00040000000000000000000000000000000000000000000000000000000B000E0000000B0000000000000900020000C00\|
+|00C00000005000000000000010000010000000000000000000000040403000000                                 |
+|    000000000000000001000000010000000000000000000000000000000000000000000000000000000000000028000\|
+|000010000000000000001000000640000000000000000000000000000002C000000000000000000000000000000000000\|
+|0004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|000000000000000001B000000EE000000000000000B000000000000000000000020004900000002000000000C00000000\|
+|0C00200020002000450000000000000020002000200031003000300031002000200020002000200020002000200000000\|
+|00000004400240053002000200020                                                                     |
+----------------------------------------------------------------------------------------------------
+|No.       4 Ty.          MODULE (PAI)                                                             |
+|Name  %_BACK                                                                                      |
+----------------------------------------------------------------------------------------------------
+|No.       3 Ty.          FORM                                                                     |
+|Name  OPEN_GUI                                                                                    |
+----------------------------------------------------------------------------------------------------
+|SCREEN                                                                                            |
+|    {%_17NNS0000688076_%_%_%_%_%_%_;;;;SRI;0;0;0;0;1;00;0;0;0;0;0;0}                              |
+|    205030304040503030303030303030303050205020502050205020502050202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    50F01070E0E03000000000608080007060F050F050F050F050F050F050F0000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    25005F00310037004E004E00530030003000300030003600380038003000370036005F0025005F0025005F0025005\|
+|F0025005F0025005F0025005F002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|%_##TVREG_002                                                                                     |
+|    {O:initial}                                                                                   |
+|    F0000000                                                                                      |
+|    F0000000                                                                                      |
+|    FF00000000000000                                                                              |
+|SYST                                                                                              |
+|    {0;0;1;1;0;0;0;0;0;0;0;40;1;0;1;100;0;0;0;44;0;0;0;0;4;0;0;0;0;0;0;0;0;0;0;0;0;0;27;238;0;11;\|
+|0;0;;I;0000;2;0;0;;;;E;0;;;;1001;;;;;;0;D$S;001;;;0;0;;;;;;;;;;00;;;;;;;;;;;;000;;;;;;;;;HDB;;;A4\|
+|H;Linux;%_CS;757;ZABAPGIT;CBAC;;;0000000000;0000000000;;00000000;                                 |
+|    000000000000000000000000000000000000000000002000000000000000600000000000000020000000000000000\|
+|000000000000000000000000000000000000000000000000000000000001000E000000000000000000020400000000000\|
+|00002020204000000020202030303030202020202020202000000040205020202                                 |
+|    0000000010001000000000000000000000000000000080001000000010004000000000000000C0000000000000000\|
+|00040000000000000000000000000000000000000000000000000000000B000E0000000B0000000000000900020000C00\|
+|00C00000005000000000000010000010000000000000000000000040403000000                                 |
+|    000000000000000001000000010000000000000000000000000000000000000000000000000000000000000028000\|
+|000010000000000000001000000640000000000000000000000000000002C000000000000000000000000000000000000\|
+|0004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|000000000000000001B000000EE000000000000000B000000000000000000000020004900000002000000000C00000000\|
+|0C00200020002000450000000000000020002000200031003000300031002000200020002000200020002000200000000\|
+|00000004400240053002000200020                                                                     |
+|LV_ACTION                                                                                         |
+|    go_home                                                                                       |
+|    6656666                                                                                       |
+|    7FF8FD5                                                                                       |
+|    0000000                                                                                       |
+|    0000000                                                                                       |
+|    67006F005F0068006F006D006500                                                                  |
+----------------------------------------------------------------------------------------------------
+|No.       2 Ty.          FORM                                                                     |
+|Name  RUN                                                                                         |
+----------------------------------------------------------------------------------------------------
+|%_P_USER_%_APP_%                                                                                  |
+|    {}                                                                                            |
+|    202020202020202020202020202020202020202020202020202020202020                                  |
+|    000000000000000000000000000000000000000000000000000000000000                                  |
+|    200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|000200020002000200020002000                                                                       |
+|SY-XFORM                                                                                          |
+|    CONVERSION_EXIT                                                                               |
+|    444545544454545222222222222222                                                                |
+|    3FE65239FEF5894000000000000000                                                                |
+|    000000000000000000000000000000                                                                |
+|    000000000000000000000000000000                                                                |
+|    43004F004E00560045005200530049004F004E005F004500580049005400200020002000200020002000200020002\|
+|000200020002000200020002000                                                                       |
+|ZIF_ABAPGIT_AUTH=>C_AUTHORIZATION-STARTUP                                                         |
+|    STARTUP                                                                                       |
+|    5545555                                                                                       |
+|    3412450                                                                                       |
+|    0000000                                                                                       |
+|    0000000                                                                                       |
+|    5300540041005200540055005000                                                                  |
+|%_##TVREG_001                                                                                     |
+|    X                                                                                             |
+|    5                                                                                             |
+|    8                                                                                             |
+|    0                                                                                             |
+|    0                                                                                             |
+|    5800                                                                                          |
+|SC_USER                                                                                           |
+|    User                                                                                          |
+|    57672222222222222222222222222222222222222222222222222222222222222222222222222222222           |
+|    53520000000000000000000000000000000000000000000000000000000000000000000000000000000           |
+|    00000000000000000000000000000000000000000000000000000000000000000000000000000000000           |
+|    00000000000000000000000000000000000000000000000000000000000000000000000000000000000           |
+|    550073006500720020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|020002000200020002000200020002000200020002000                                                     |
+|%_PRINT                                                                                           |
+|    {;000;;;;;;0;0;0;;;;;;;;;;;0;;;0}                                                             |
+|    202020203030302020202020202020202020202020202020202020202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020203000000000\|
+|00202020202020202020202020202020202020202020202020202020202020202                                 |
+|    000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    200020002000200030003000300020002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000300000000000000000000000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|P_URL                                                                                             |
+|    <empty string>                                                                                |
+|    10000000                                                                                      |
+|    40000000                                                                                      |
+|    1400000000000000                                                                              |
+|%_ARCHIVE                                                                                         |
+|    {;;;;;;;;;;;;;;;;;;0}                                                                         |
+|    202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202\|
+|0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020\|
+|20202020202020202020202020202020202020202020202020202020202020202                                 |
+|    000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\|
+|00000000000000000000000000000000000000000000000000000000000000000                                 |
+|    200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020\|
+|0020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200\|
+|0200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002000\|
+|2000200020002000200020002000200020002000200020002000200020002000200020002000200020002000200020002\|
+|00020002000200020002000200020                                                                     |
+|LX_EXCEPTION                                                                                      |
+|    {O:initial}                                                                                   |
+|    F0000000                                                                                      |
+|    F0000000                                                                                      |
+|    FF00000000000000                                                                              |
+----------------------------------------------------------------------------------------------------
+|No.       1 Ty.          EVENT                                                                    |
+|Name  START-OF-SELECTION                                                                          |
+----------------------------------------------------------------------------------------------------
+|SY-XPROG                                                                                          |
+|    SAPCNVE                                                                                       |
+|    5454454222222222222222222222222222222222                                                      |
+|    3103E65000000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    0000000000000000000000000000000000000000                                                      |
+|    53004100500043004E005600450020002000200020002000200020002000200020002000200020002000200020002\|
+|0002000200020002000200020002000200020002000200020002000200020002000                               |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Lock Shared Objects                                                                               |
+----------------------------------------------------------------------------------------------------
+|ModeLockRe Area Name                                                                              |
+|Instance Name                                                                    Clt Lock Type    |
+|Version ID Label                Include                                  Line       Time Stamp    |
+----------------------------------------------------------------------------------------------------
+|         2 CL_GUI_MEMORY                                                                          |
+|$DEFAULT_INSTANCE$        001 R                                                                   |
+|        37                  251 CL_GUI_FRONTEND_SERVICES======CM01Y               6 20250603231934|
+|         4 CL_GUI_RESOURCE_MEMORY                                                                 |
+|$DEFAULT_INSTANCE$                                                           001 R                |
+|       121                  253 CL_GUI_RESOURCES==============CM00G             184 20250603231934|
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Internal notes                                                                                    |
+|    The terminationwas triggered in function "ab_jclom" of the SAP kernel, in                     |
+|    line 7392 of module "//bas/GIT/krn/abap/runt/abmethod.c#0".                                   |
+|    The internal operation just processed is "clom".                                              |
+|    Internal mode started at 20250603231934.                                                      |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Active Calls in SAP Kernel                                                                        |
+----------------------------------------------------------------------------------------------------
+|Lines of C sStack in kernel (structure different on each platform)                                |
+----------------------------------------------------------------------------------------------------
+|# buildID: 47a3bf55327ac5f69af218ba355c304715eb8bf6                                               |
+|dw.sapA4H_D00;0x961263;[S](LinStackBacktrace(void**, int, int)+0xa8)[0x55cb61561263]              |
+|dw.sapA4H_D00;0x965867;[S](LinStack(_IO_FILE*)+0x48)[0x55cb61565867]                              |
+|dw.sapA4H_D00;0x960ce3;[S](CTrcStack2+0x4b)[0x55cb61560ce3]                                       |
+|dw.sapA4H_D00;0xc45288;[S](rabax_CStackSave()+0x9e)[0x55cb61845288]                               |
+|dw.sapA4H_D00;0xc409cd;[S](rabax(char16_t const*, char16_t const*, int, char16_t const*, void con\|
+|st*) [clone .cold]+0x1021)[0x55cb618409cd]                                                        |
+|dw.sapA4H_D00;0xf085fc;[S](ab_jclom() [clone .cold]+0xee)[0x55cb61b085fc]                         |
+|dw.sapA4H_D00;0xbc964c;[S](ab_extri() [clone .cold]+0xd0c)[0x55cb617c964c]                        |
+|dw.sapA4H_D00;0x2d54461;[S](ab_xevent(char16_t const*)+0x31)[0x55cb63954461]                      |
+|dw.sapA4H_D00;0xbc149d;[S](ab_dstep.cold+0x2c1)[0x55cb617c149d]                                   |
+|dw.sapA4H_D00;0x2ce199d;[S](dynpmcal(DINFDUMY*, STPDUMMY*)+0x5dd)[0x55cb638e199d]                 |
+|dw.sapA4H_D00;0x99a7f0;[S](dynprctl(DINFDUMY*) [clone .cold]+0xd3)[0x55cb6159a7f0]                |
+|dw.sapA4H_D00;0x2cdf9fc;[S](dynpen00(int)+0x3bc)[0x55cb638df9fc]                                  |
+|dw.sapA4H_D00;0x9498af;[S](GuiHandler::handleRequest(REQUEST_BUF*, bool)+0x885)[0x55cb615498af]   |
+|dw.sapA4H_D00;0x30b8f5a;[S](ThStart()+0x83a)[0x55cb63cb8f5a]                                      |
+|dw.sapA4H_D00;0x30814c4;[S](DpMain+0x3d4)[0x55cb63c814c4]                                         |
+|dw.sapA4H_D00;0x2c6104e;[S](main+0x2e)[0x55cb6386104e]                                            |
+|# buildID: f732026552f6adff988b338e92d466bc81a01c37                                               |
+|libc.so.6;0x3524d;[S](__libc_start_main+0xef)[0x7f16c15f924d]                                     |
+|# buildID: 47a3bf55327ac5f69af218ba355c304715eb8bf6                                               |
+|dw.sapA4H_D00;0x308102a;[S](_start+0x2a)[0x55cb63c8102a]                                          |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|List of ABAP programs affected                                                                    |
+----------------------------------------------------------------------------------------------------
+|Index |Ty.|Program                                 |Group |Date      |Time    |Size     |Lang.    |
+----------------------------------------------------------------------------------------------------
+|     0|Prg|ZABAPGIT                                |     0|16.05.2025|08:17:51|    78848|E        |
+|     1|Prg|SAPMSSY0                                |     1|03.05.2022|11:41:46|   120832|E        |
+|     2|Prg|SAPMSSYD                                |     1|31.07.2024|19:30:59|    34816|E        |
+|     3|Prg|SAPFSYSCALLS                            |     1|13.02.2015|19:49:42|     7168|E        |
+|     4|Prg|CL_DYNP_CUA_DEFAULT===========CP        |     4|15.02.2021|09:34:59|    10240|E        |
+|     5|Prg|RSDBRUNT                                |     0|31.07.2024|19:30:49|   322560|E        |
+|     6|Typ|RSSCR                                   |     0|22.10.2012|15:46:46|     6144|         |
+|     7|Prg|RSDBSPBL                                |     0|03.04.2022|18:49:44|    82944|E        |
+|     8|Prg|SAPDBD$S                                |     0|19.02.2020|13:58:33|    21504|E        |
+|     9|Typ|VARID                                   |     0|28.05.2009|08:12:55|     5120|         |
+|    10|Prg|RSDBSPMC                                |     0|03.04.2022|18:49:44|    94208|E        |
+|    11|Typ|DDSHDESCR                               |     0|28.11.1997|16:26:30|     4096|         |
+|    12|Typ|SPPARAMS                                |     0|07.03.1997|14:48:48|     3072|         |
+|    13|Prg|SAPLSABE                                |    13|23.02.2016|18:27:21|    15360|E        |
+|    14|Prg|SAPLSECU                                |    14|31.07.2024|19:29:23|   156672|E        |
+|    15|Typ|RSSUBINFO                               |     0|22.10.2012|15:46:48|     4096|         |
+|    16|Typ|RPY_DYCATT                              |     0|20.03.2017|16:23:42|     8192|         |
+|    17|Typ|RPY_DYFATC                              |     0|16.07.2014|19:37:49|    14336|         |
+|    18|Typ|RPY_DYFLOW                              |     0|06.09.1996|12:33:02|     3072|         |
+|    19|Prg|SAPLSIFP                                |    19|31.07.2024|19:30:03|   399360|E        |
+|    20|Typ|D021S                                   |     0|23.11.1999|09:22:08|     9216|         |
+|    21|Typ|RPY_DYPARA                              |     0|22.10.2012|15:45:37|     3072|         |
+|    22|Typ|D021T                                   |     0|23.11.1999|09:22:12|     4096|         |
+|    23|Prg|SAPLSEUQ                                |    23|15.06.2022|14:22:04|   371712|E        |
+|    24|Typ|TRKEY                                   |     0|22.10.2012|15:47:51|     3072|         |
+|    25|Typ|TADIR                                   |     0|05.02.2018|17:46:58|     6144|         |
+|    26|Typ|DDERR                                   |     0|18.06.1999|11:20:07|     4096|         |
+|    27|Typ|E071                                   |     0|22.10.2012|15:42:24|     4096|          |
+|    28|Prg|SAPLSTRD                                |    28|31.07.2024|19:31:01|  1210368|E        |
+|    29|Prg|SAPLSCP3                                |    29|13.02.2015|19:49:42|     9216|E        |
+|    30|Typ|TFDIR                                   |     0|26.03.2018|12:47:41|     4096|         |
+|    31|Prg|SAPLSCTS_UNICODE                        |    31|25.11.2020|16:57:02|    11264|E        |
+|    32|Prg|CL_ABAP_CHAR_UTILITIES========CP        |    32|11.02.2022|15:40:59|    13312|E        |
+|    33|Prg|IF_ABAP_LANGUAGE_VERSION======IP        |    23|15.06.2022|14:22:04|    11264|E        |
+|    34|Prg|%_CSMODI                                |    23|13.02.2015|19:49:42|    36864|E        |
+|    35|Prg|SAPLSEQ0                                |    35|31.07.2024|19:26:14|   204800|E        |
+|    36|Prg|SAPLSEUS                                |    36|31.07.2024|19:30:41|  1107968|E        |
+|    37|Prg|SAPLSCR2                                |    37|19.05.2022|10:51:51|  1101824|E        |
+|    38|Typ|D023S                                   |     0|22.07.1998|16:42:34|     3072|         |
+|    39|Prg|SAPLCHGU                                |    39|19.05.2022|10:51:51|   302080|E        |
+|    40|Prg|CL_DYNPRO_PROPERTY_BAG========CP        |    40|02.05.2022|11:16:27|   104448|E        |
+|    41|Typ|D023S_PROP                              |     0|19.01.2000|18:25:57|     3072|         |
+|    42|Prg|CL_DYNPRO_CONTROL_COMPOSITE===CP        |    42|04.03.2013|21:26:43|    16384|E        |
+|    43|Prg|ZCL_ABAPGIT_FACTORY===========CP        |    43|16.05.2025|08:08:57|    17408|E        |
+|    44|Prg|ZCL_ABAPGIT_ENVIRONMENT=======CP        |    44|16.05.2025|08:08:50|    32768|E        |
+|    45|Prg|SAPLSCNT                                |    45|28.05.2018|11:20:41|    32768|E        |
+|    46|Typ|DYCBOX                                  |     0|23.11.1999|09:23:17|     3072|         |
+|    47|Prg|SAPLSVSM                                |    47|11.02.2022|15:44:11|    31744|E        |
+|    48|Prg|SAPLSGUI                                |    48|19.05.2022|10:43:47|   102400|E        |
+|    49|Prg|SAPLSTTM                                |    49|25.11.2021|18:22:54|    80896|E        |
+|    50|Prg|SAPLSBDC                                |    50|25.11.2021|18:22:53|    70656|E        |
+|    51|Prg|SAPSHDTV                                |    45|23.11.2023|20:07:33|    91136|E        |
+|    52|Prg|SAPFS_SECLOG                            |     1|25.11.2020|16:57:00|    25600|E        |
+|    53|Typ|INDX                                    |     0|29.04.1998|10:21:27|     7168|         |
+|    54|Prg|SDYNPRAL                                |     1|16.05.2016|11:52:24|     8192|E        |
+|    55|Prg|SAPLSDYNPRAL                            |    55|25.11.2020|16:57:03|    16384|E        |
+|    56|Typ|DYNP_RAL_ID                             |     0|30.07.2013|11:58:33|     3072|         |
+|    57|Typ|DYNP_RAL_SCREEN                         |     0|22.10.2012|15:42:23|     3072|         |
+|    58|Prg|CL_DYNP_RAL_API===============CP        |    58|02.05.2022|11:16:27|   120832|E        |
+|    59|Prg|CL_SRAL_RECORDER_FACTORY_DYNP=CP        |    59|31.07.2024|19:26:13|    38912|E        |
+|    60|Prg|SRAL_DYNP_ADAPTER                       |    58|25.11.2021|19:12:47|    27648|E        |
+|    61|Prg|CL_SRAL_FACTORY_DYNP==========CP        |    61|02.05.2022|11:16:30|    83968|E        |
+|    62|Prg|CL_SRAL_SWITCH_CLIENT=========CP        |    62|11.02.2022|15:51:10|    10240|E        |
+|    63|Prg|CL_SRAL_DB_PARAMS=============CP        |    63|11.02.2022|15:51:10|    23552|E        |
+|    64|Prg|RADSHPBOPREFLIGHT                       |     1|25.11.2020|16:56:59|    18432|E        |
+|    65|Prg|RADSHPBOSTATUS                          |     1|25.11.2020|16:56:59|    20480|E        |
+|    66|Prg|RADSHPBOSWITCH                          |     1|20.04.2021|08:44:18|    21504|E        |
+|    67|Prg|RADSHUPGRADE                            |     1|25.11.2021|18:22:49|    21504|E        |
+|    68|Prg|WPBHELP_REGISTRATION                    |     1|06.04.2021|14:55:49|    11264|E        |
+|    69|Prg|SAPFGUICNTL                             |     1|20.12.2018|17:14:41|    28672|E        |
+|    70|Prg|SAPLOLEA                                |    70|25.11.2020|16:57:02|   120832|E        |
+|    71|Prg|SAPLSFES                                |    71|31.07.2024|19:30:40|   322560|E        |
+|    72|Prg|CL_SYSTEM_TRANSACTION_STATE===CP        |    72|02.05.2022|11:16:31|   109568|E        |
+|    73|Prg|SAPLTHFB                                |    73|03.04.2022|18:55:06|   518144|E        |
+|    74|Prg|SAPLSPLUGIN                             |    74|25.11.2021|18:22:54|     8192|E        |
+|    75|Typ|ARFCRDATA                               |     0|09.09.2011|20:56:00|     7168|         |
+|    76|Prg|SAPLGRFC                                |    76|13.02.2015|19:49:42|    15360|E        |
+|    77|Typ|SWCBCONT                                |     0|09.09.2011|20:56:57|     4096|         |
+|    78|Typ|OLE_VERBS                               |     0|09.02.1995|13:23:37|     3072|         |
+|    79|Typ|OLE_PA                                  |     0|13.01.1995|11:06:59|     3072|         |
+|    80|Prg|SAPFS_DYNPRO_HOOKS                      |     1|05.02.2018|19:15:13|     7168|E        |
+|    81|Prg|SAPLSALV_IDA_IMPL_UI_SCREEN             |    81|31.07.2024|19:28:11|    16384|E        |
+|    82|Prg|CL_SALV_GUI_ROUNDTRIP_BROKER==CP        |    82|19.05.2022|10:38:51|    90112|E        |
+|    83|Prg|SAPLSPOF                                |    83|23.11.2023|20:07:33|   220160|E        |
+|    84|Prg|ZCL_ABAPGIT_AUTH==============CP        |    84|16.05.2025|08:08:08|    10240|E        |
+|    85|Prg|ZIF_ABAPGIT_AUTH==============IP        |     0|16.05.2025|08:06:40|     6144|E        |
+|    86|Prg|CX_SY_CREATE_OBJECT_ERROR=====CP        |    86|25.11.2020|16:56:54|    11264|E        |
+|    87|Prg|CX_SY_CREATE_ERROR============CP        |    87|25.11.2020|16:56:54|    10240|E        |
+|    88|Prg|CX_DYNAMIC_CHECK==============CP        |    88|25.11.2020|16:56:53|    10240|E        |
+|    89|Prg|CX_ROOT=======================CP        |    89|25.11.2020|16:56:53|    14336|E        |
+|    90|Prg|CX_NO_CHECK===================CP        |    90|25.11.2020|16:56:53|    10240|E        |
+|    91|Prg|ZCL_ABAPGIT_MIGRATIONS========CP        |    91|16.05.2025|08:11:10|    11264|E        |
+|    92|Prg|ZCL_ABAPGIT_PERSIST_MIGRATE===CP        |    92|16.05.2025|08:15:52|    77824|E        |
+|    93|Prg|ZCL_ABAPGIT_PERSISTENCE_DB====CP        |    93|16.05.2025|08:15:44|    32768|E        |
+|    94|Prg|CX_SY_CREATE_DATA_ERROR=======CP        |    94|25.11.2020|16:56:54|    12288|E        |
+|    95|Prg|ZCL_ABAPGIT_APACK_MIGRATION===CP        |    95|16.05.2025|08:08:04|    26624|E        |
+|    96|Prg|ZIF_ABAPGIT_APACK_DEFINITIONS=IP        |    95|16.05.2025|08:06:40|    11264|E        |
+|    97|Prg|ZIF_APACK_MANIFEST============IP        |    95|30.01.2020|12:09:44|     7168|E        |
+|    98|Prg|ZCL_ABAPGIT_REPO_CS_MIGRATION=CP        |    98|16.05.2025|08:16:17|    19456|E        |
+|    99|Prg|ZCL_ABAPGIT_PERSIST_FACTORY===CP        |    99|16.05.2025|08:15:50|    13312|E        |
+|   100|Prg|ZCL_ABAPGIT_PERSISTENCE_REPO==CP        |   100|16.05.2025|08:15:46|    46080|E        |
+|   101|Prg|CL_ABAP_TYPEDESCR=============CP        |   101|25.11.2021|18:22:20|    29696|E        |
+|   102|Prg|ZIF_ABAPGIT_PERSISTENCE=======IP        |   101|16.05.2025|08:06:44|    22528|E        |
+|   103|Prg|CL_ABAP_STRUCTDESCR===========CP        |   103|25.11.2021|18:22:20|    49152|E        |
+|   104|Prg|CL_ABAP_COMPLEXDESCR==========CP        |   104|25.11.2020|16:56:23|    16384|E        |
+|   105|Prg|CL_ABAP_DATADESCR=============CP        |   105|25.11.2020|16:56:23|    18432|E        |
+|   106|Typ|WBACCESS_TOOL                           |     0|13.02.2015|18:08:51|     7168|         |
+|   107|Prg|%_CABAP                                 |    28|25.11.2020|16:57:05|    36864|E        |
+|   108|Prg|CL_ABAP_SOFT_REFERENCE========CP        |   108|23.11.2018|17:27:09|     9216|E        |
+|   109|Prg|CL_ABAP_REFERENCE=============CP        |   109|13.02.2015|19:49:42|     7168|E        |
+|   110|Prg|ZCL_ABAPGIT_REPO_SRV==========CP        |   110|16.05.2025|08:16:27|    64512|E        |
+|   111|Typ|ZABAPGIT                                |     0|30.01.2020|12:09:12|     3072|         |
+|   112|Prg|SAPLSTR9                                |   112|19.05.2022|10:45:27|    64512|E        |
+|   113|Prg|CONTEXT_X_TR_SYS_PARAMS                 |   112|02.03.2022|18:00:35|    47104|E        |
+|   114|Typ|TCONT                                   |     0|22.10.2012|15:47:46|     3072|         |
+|   115|Typ|CONTEXTB                                |     0|22.10.2012|15:41:24|     7168|         |
+|   116|Prg|SAPLSUGS                                |   116|31.07.2024|18:06:40|   173056|E        |
+|   117|Typ|CVERS                                   |     0|12.04.2001|09:48:51|     3072|         |
+|   118|Typ|UVERS                                   |     0|12.04.2001|09:51:15|     4096|         |
+|   119|Prg|ZCL_ABAPGIT_REPO_ONLINE=======CP        |   119|16.05.2025|08:16:24|    59392|E        |
+|   120|Prg|ZCL_ABAPGIT_REPO==============CP        |   120|16.05.2025|08:16:13|    97280|E        |
+|   121|Prg|ZCL_ABAPGIT_REPO_OFFLINE======CP        |   121|16.05.2025|08:16:23|    29696|E        |
+|   122|Prg|ZCL_ABAPGIT_DOT_ABAPGIT=======CP        |   122|16.05.2025|08:08:32|    36864|E        |
+|   123|Prg|ZIF_ABAPGIT_DEFINITIONS=======IP        |     0|16.05.2025|08:06:41|    61440|E        |
+|   124|Prg|ZCL_ABAPGIT_HTML==============CP        |   124|16.05.2025|08:10:39|    57344|E        |
+|   125|Prg|CL_ABAP_REGEX=================CP        |   125|25.11.2021|18:22:20|    22528|E        |
+|   126|Prg|ZCL_ABAPGIT_PERSISTENCE_USER==CP        |   126|16.05.2025|08:15:48|    48128|E        |
+|   127|Prg|ZCL_ABAPGIT_UI_FACTORY========CP        |   127|16.05.2025|08:17:09|    17408|E        |
+|   128|Prg|ZCL_ABAPGIT_FRONTEND_SERVICES=CP        |   128|16.05.2025|08:09:08|    34816|E        |
+|   129|Prg|ZCL_ABAPGIT_POPUPS============CP        |   129|16.05.2025|08:15:55|   117760|E        |
+|   130|Prg|SAPLSPO1                                |   130|06.04.2022|09:14:29|    73728|E        |
+|   131|Typ|SPAR                                    |     0|18.01.1995|16:54:03|     3072|         |
+|   132|Typ|TLINE                                   |     0|18.01.1995|17:05:44|     3072|         |
+|   133|Prg|SAPLICON                                |   133|13.02.2015|19:49:42|    54272|E        |
+|   134|Prg|%_CICON                                 |   133|20.04.2021|08:56:42|   117760|E        |
+|   135|Typ|ICONT                                   |     0|22.10.2012|15:43:56|     3072|         |
+|   136|Prg|SAPLCSTR                                |   136|02.05.2022|11:16:32|    83968|E        |
+|   137|Prg|SAPLURFC                                |   137|19.05.2022|10:43:16|    54272|E        |
+|   138|Prg|CL_ABAP_LIST_UTILITIES========CP        |   138|25.11.2021|18:22:20|    22528|E        |
+|   139|Prg|CL_GUI_CUSTOM_CONTAINER=======CP        |   139|28.05.2018|11:20:41|    45056|E        |
+|   140|Prg|CL_GUI_CONTAINER==============CP        |   140|28.05.2018|11:20:41|    60416|E        |
+|   141|Prg|CL_GUI_CONTROL================CP        |   141|25.11.2020|16:56:37|   121856|E        |
+|   142|Prg|CL_GUI_OBJECT=================CP        |   142|25.11.2020|16:56:37|   446464|E        |
+|   143|Prg|CL_GUI_CFW====================CP        |   143|20.12.2018|17:14:09|   185344|E        |
+|   144|Prg|CL_GUI_PROPS_CONSUMER=========CP        |   144|28.05.2018|11:20:41|    33792|E        |
+|   145|Typ|EUDB                                    |     0|22.10.2012|15:43:07|     9216|         |
+|   146|Prg|%_CCNTL                                 |   144|28.05.2018|11:20:40|    16384|E        |
+|   147|Prg|CL_DYNAMIC_GUI_EXTENSIONS=====CP        |   147|13.02.2015|19:49:42|    41984|E        |
+|   148|Typ|OBJ_RECORD                              |     0|28.05.2018|11:20:41|     3072|         |
+|   149|Typ|TOLE                                    |     0|20.05.1998|14:20:04|     4096|         |
+|   150|Prg|%_COLE2                                 |    70|28.05.2018|11:20:40|    12288|E        |
+|   151|Prg|SAPLSCP2                                |   151|31.07.2024|19:29:49|   202752|E        |
+|   152|Typ|SWCONT                                  |     0|09.09.2011|20:56:57|     3072|         |
+|   153|Prg|SAPLCNTH                                |   153|28.05.2018|11:20:41|    30720|E        |
+|   154|Prg|CL_ABAP_ELEMDESCR=============CP        |   154|25.11.2021|18:22:20|    45056|E        |
+|   155|Prg|CL_GUI_HTML_VIEWER============CP        |   155|31.07.2024|19:31:17|   173056|E        |
+|   156|Prg|SAPLCNDP                                |   156|25.11.2021|18:22:51|   231424|E        |
+|   157|Prg|SAPLCNTL                                |   157|25.03.2019|15:41:03|   356352|E        |
+|   158|Prg|CL_GUI_FRONTEND_SERVICES======CP        |   158|31.07.2024|19:30:40|   165888|E        |
+|   159|Prg|CL_GUI_MEMORY=================CP        |   159|25.11.2021|18:22:30|    47104|E        |
+|   160|Prg|CL_SHM_AREA===================CP        |   160|11.01.2022|15:39:24|    63488|E        |
+|   161|Prg|CL_ABAP_MEMORY_AREA===========CP        |   161|25.11.2021|18:22:20|    12288|E        |
+|   162|Prg|CL_SHM_SERVICE================CP        |   162|25.11.2021|18:22:37|    55296|E        |
+|   163|Prg|CL_GUI_MEMORY_ROOT============CP        |   163|25.11.2021|18:15:46|    15360|E        |
+|   164|Prg|SAPLCNT0                                |   164|28.05.2018|11:20:41|    43008|E        |
+|   165|Prg|CL_GUI_RESOURCES==============CP        |   165|25.11.2021|18:22:30|    64512|E        |
+|   166|Typ|ARFCCALLID                              |     0|09.09.2011|20:55:59|     3072|         |
+|   167|Typ|ARFCTID                                 |     0|28.05.2009|08:11:47|     3072|         |
+|   168|Typ|ARFCDATA                                |     0|28.05.2009|08:11:47|     5120|         |
+|   169|Prg|%_CCNHT                                 |   101|13.02.2015|19:49:42|     8192|E        |
+|   170|Prg|CL_GUI_DATAMANAGER============CP        |   170|25.11.2020|16:56:37|    87040|E        |
+|   171|Prg|IF_CACHED_PROP================IP        |   170|13.02.2015|19:49:42|     5120|E        |
+|   172|Prg|SAPFGUICNTL_CFW                         |     1|28.05.2018|11:20:41|    15360|E        |
+|   173|Prg|CL_GUI_RESOURCE_MEMORY========CP        |   173|25.11.2021|18:22:30|    47104|E        |
+|   174|Prg|CX_SHM_NO_ACTIVE_VERSION======CP        |   174|25.11.2021|18:22:45|    12288|E        |
+|   175|Prg|CX_SHM_ATTACH_ERROR===========CP        |   175|25.11.2021|18:22:45|    11264|E        |
+|   176|Prg|CX_SHM_ERROR==================CP        |   176|25.11.2021|18:22:45|    11264|E        |
+|   177|Prg|CX_STATIC_CHECK===============CP        |   177|25.11.2021|18:37:55|    10240|E        |
+|   178|Prg|CL_GUI_RESOURCE_MEMORY_ROOT===CP        |   178|28.05.2018|11:35:17|    10240|E        |
+|   179|Prg|SAPLSDC_MIME                            |   179|31.07.2024|19:30:39|  1070080|E        |
+|   180|Prg|SAPLS_NLS_BIDI                          |   180|11.02.2022|15:41:00|    36864|E        |
+|   181|Prg|CL_I18N_BIDI==================CP        |   181|02.05.2022|11:16:27|   114688|E        |
+|   182|Prg|CL_ABAP_CONV_IN_CE============CP        |   182|11.02.2022|15:40:59|    25600|E        |
+|   183|Typ|CODEPAGES                               |     0|13.06.1997|12:41:11|     2048|         |
+|   184|Prg|SAPLSCPA                                |   184|02.05.2022|11:16:32|   175104|E        |
+|   185|Typ|TCP00                                   |     0|07.02.2001|15:06:14|     6144|         |
+|   186|Typ|RFC_FIELDS                              |     0|16.12.1996|19:30:48|     3072|         |
+|   187|Typ|DPPROPS                                 |     0|06.06.1997|18:56:23|     3072|         |
+|   188|Prg|SAPLSRFC                                |   188|23.03.2022|13:56:24|    52224|E        |
+|   189|Prg|SAPMSSY1                                |   156|23.11.2018|17:30:58|    34816|E        |
+|   190|Prg|CL_DATAPROVIDER===============CP        |   190|28.05.2018|11:20:40|    53248|E        |
+|   191|Prg|RADSHPBO                                |     1|02.05.2022|11:16:32|    70656|E        |
+|   192|Prg|CL_DSH_SCREEN_ASSIGNMENT======CP        |   192|02.05.2022|11:16:27|    67584|E        |
+|   193|Prg|CL_ABAP_MESSAGE_DIGEST========CP        |   193|25.11.2021|18:22:20|    30720|E        |
+|   194|Typ|ARFCSDATA                               |     0|09.09.2011|20:53:47|     7168|         |
+|   195|Prg|CL_IXML_MINI==================CP        |   195|28.05.2018|11:20:08|     9216|E        |
+|   196|Prg|CL_IXML_MINI_DOM==============CP        |   196|07.03.2005|18:01:13|    18432|E        |
+|   197|Prg|IF_IXML_MINI_NODE=============IP        |   196|07.03.2005|18:01:13|     8192|E        |
+|   198|Typ|IXMLTDOM                                |     0|03.06.2004|11:20:00|     3072|         |
+|   199|Prg|CL_IXML_MINI_NODE=============CP        |   199|07.03.2005|18:01:13|    22528|E        |
+|   200|Prg|CL_IXML_MINI_RENDERER=========CP        |   200|07.03.2005|18:01:13|    12288|E        |
+|   201|Prg|ZCL_ABAPGIT_PERSIST_SETTINGS==CP        |   201|16.05.2025|08:15:54|    13312|E        |
+|   202|Prg|ZCL_ABAPGIT_SETTINGS==========CP        |   202|16.05.2025|08:16:40|    41984|E        |
+|   203|Prg|ZCX_ABAPGIT_NOT_FOUND=========CP        |   203|16.05.2025|08:17:34|    10240|E        |
+|   204|Prg|/1BCDWBEN/SAPLTEN0000                   |   204|07.03.2005|18:01:13|    19456|E        |
+|   205|Prg|SAPLSENA                                |   205|02.05.2022|11:16:32|    69632|E        |
+|   206|Prg|CL_RLFW_SERVER_GROUP==========CP        |   206|02.05.2022|11:16:28|    49152|E        |
+|   207|Prg|ZCL_ABAPGIT_FUNCTION_MODULE===CP        |   207|16.05.2025|08:09:09|     9216|E        |
+|   208|Prg|SAPLSUNI                                |   208|31.07.2024|19:29:53|   316416|E        |
+|   209|Prg|CL_ABAP_BEHV_TRANSACTION_NTFR=CP        |   209|20.04.2021|08:51:06|     9216|E        |
+|   210|Prg|CL_OS_TRANSACTION_END_NOTIFIERCP        |   210|09.03.2021|15:20:18|     9216|E        |
+|   211|Prg|ZCL_ABAPGIT_OBJECTS===========CP        |   211|16.05.2025|08:11:12|   118784|E        |
+|   212|Prg|ZCL_ABAPGIT_EXIT==============CP        |   212|16.05.2025|08:08:56|    57344|E        |
+|   213|Prg|ZCL_ABAPGIT_OBJECT_CLAS=======CP        |   213|16.05.2025|08:11:57|   126976|E        |
+|   214|Prg|ZCL_ABAPGIT_OBJECTS_PROGRAM===CP        |   214|16.05.2025|08:11:25|   107520|E        |
+|   215|Prg|ZCL_ABAPGIT_OBJECTS_SUPER=====CP        |   215|16.05.2025|08:11:26|    36864|E        |
+|   216|Prg|ZIF_ABAPGIT_OBJECT============IP        |   211|16.05.2025|08:06:43|    13312|E        |
+|   217|Prg|ZCL_ABAPGIT_OBJECTS_FILES=====CP        |   217|16.05.2025|08:11:20|    48128|E        |
+|   218|Prg|ZCL_ABAPGIT_I18N_PARAMS=======CP        |   218|16.05.2025|08:10:54|    23552|E        |
+|   219|Prg|ZCL_ABAPGIT_OO_FACTORY========CP        |   219|16.05.2025|08:15:38|    11264|E        |
+|   220|Prg|ZCL_ABAPGIT_OO_CLASS==========CP        |   220|16.05.2025|08:15:37|    59392|E        |
+|   221|Prg|ZCL_ABAPGIT_OO_BASE===========CP        |   221|16.05.2025|08:15:35|    98304|E        |
+|   222|Prg|CL_OO_CLASSNAME_SERVICE=======CP        |   222|31.07.2024|19:25:57|    73728|E        |
+|   223|Prg|SAPLSEOC                                |   223|02.05.2022|11:16:32|   180224|E        |
+|   224|Typ|SEOCLSKEY                               |     0|09.09.2011|20:56:55|     2048|         |
+|   225|Prg|CL_ADT_GUI_INTEGRATION_CONTEXTCP        |   225|23.02.2016|18:29:38|    33792|E        |
+|   226|Typ|SADT_GUI_CONTEXT_INFO                   |     0|22.10.2012|15:46:56|     5120|         |
+|   227|Prg|CL_ADT_GUI_INT_CONTEXT_AREA===CP        |   227|13.02.2015|19:25:14|    47104|E        |
+|   228|Prg|CL_HTTP_UTILITY===============CP        |   228|02.05.2022|11:16:27|   104448|E        |
+|   229|Typ|IHTTPNVP                                |     0|09.09.2011|20:54:39|     2048|         |
+|   230|Prg|ZCL_ABAPGIT_STRING_BUFFER=====CP        |   230|16.05.2025|08:16:47|    12288|E        |
+|   231|Prg|ZCL_ABAPGIT_GUI_ASSET_MANAGER=CP        |   231|16.05.2025|08:09:26|    27648|E        |
+|   232|Prg|ZCL_ABAPGIT_GUI_HTML_PROCESSORCP        |   232|16.05.2025|08:09:34|    36864|E        |
+|   233|Prg|ZCL_ABAPGIT_GUI_ROUTER========CP        |   233|16.05.2025|08:10:35|    70656|E        |
+|   234|Prg|ZCL_ABAPGIT_GUI_HOTKEY_CTL====CP        |   234|16.05.2025|08:09:33|    23552|E        |
+|   235|Prg|ZCL_ABAPGIT_GUI_COMPONENT=====CP        |   235|16.05.2025|08:09:29|    14336|E        |
+|   236|Prg|ZCL_ABAPGIT_GUI===============CP        |   236|16.05.2025|08:09:25|    44032|E        |
+|   237|Prg|ZCL_ABAPGIT_GUI_UTILS=========CP        |   237|16.05.2025|08:10:36|    14336|E        |
+|   238|Prg|ZIF_ABAPGIT_GUI_RENDERABLE====IP        |   237|16.05.2025|08:06:42|     5120|E        |
+|   239|Prg|CX_SY_MOVE_CAST_ERROR=========CP        |   239|25.11.2020|16:56:54|    11264|E        |
+|   240|Prg|ZIF_ABAPGIT_GUI_EVENT_HANDLER=IP        |   237|16.05.2025|08:06:42|     6144|E        |
+|   241|Prg|ZCL_ABAPGIT_HTML_PARTS========CP        |   241|16.05.2025|08:10:44|    16384|E        |
+|   242|Prg|ZCL_ABAPGIT_UI_CORE_FACTORY===CP        |   242|16.05.2025|08:17:07|     9216|E        |
+|   243|Prg|ZCL_ABAPGIT_HTML_VIEWER_GUI===CP        |   243|16.05.2025|08:10:48|    21504|E        |
+|   244|Prg|ZIF_ABAPGIT_HTML_VIEWER=======IP        |   243|16.05.2025|08:06:43|     9216|E        |
+|   245|Prg|SAPLSHTM                                |   245|02.03.2022|18:00:38|   113664|E        |
+|   246|Typ|WWWPARAMS                               |     0|12.03.1997|10:13:09|     4096|         |
+|   247|Typ|W3MIME                                  |     0|29.07.1996|15:52:40|     3072|         |
+|   248|Typ|W3HTML                                  |     0|29.07.1996|15:52:39|     3072|         |
+|   249|Typ|WWWDATA                                 |     0|22.10.2012|15:48:18|     7168|         |
+|   250|Prg|ZCL_ABAPGIT_CONVERT===========CP        |   250|16.05.2025|08:08:16|    95232|E        |
+|   251|Prg|ZCL_ABAPGIT_GUI_EVENT=========CP        |   251|16.05.2025|08:09:32|    48128|E        |
+|   252|Prg|CL_ABAP_CONV_CODEPAGE=========CP        |   252|11.02.2022|15:40:59|    22528|E        |
+|   253|Prg|CL_I18N_UTILS=================CP        |   253|02.05.2022|11:16:27|   132096|E        |
+|   254|Prg|IF_ABAP_CONV_IN===============IP        |   250|11.02.2022|15:41:00|     6144|E        |
+|   255|Prg|ZCL_ABAPGIT_STRING_MAP========CP        |   255|16.05.2025|08:16:48|    25600|E        |
+|   256|Prg|ZCL_ABAPGIT_GUI_PAGE_REPO_OVERCP        |   256|16.05.2025|08:10:08|    78848|E        |
+|   257|Prg|ZCL_ABAPGIT_GUI_PAGE_HOC======CP        |   257|16.05.2025|08:09:59|    18432|E        |
+|   258|Prg|ZCL_ABAPGIT_GUI_PAGE==========CP        |   258|16.05.2025|08:09:38|    41984|E        |
+|   259|Prg|ZIF_ABAPGIT_GUI_PAGE_TITLE====IP        |   257|16.05.2025|08:06:42|     5120|E        |
+|   260|Prg|ZIF_ABAPGIT_GUI_MODAL=========IP        |   257|16.05.2025|08:06:42|     5120|E        |
+|   261|Prg|ZIF_ABAPGIT_GUI_SERVICES======IP        |   127|16.05.2025|08:06:42|     7168|E        |
+|   262|Prg|ZIF_ABAPGIT_GUI_HOTKEYS=======IP        |   235|16.05.2025|08:06:42|     6144|E        |
+|   263|Prg|ZCL_ABAPGIT_TIMER=============CP        |   263|16.05.2025|08:17:00|    11264|E        |
+|   264|Prg|CL_ABAP_REFDESCR==============CP        |   264|25.11.2021|18:22:20|    30720|E        |
+|   265|Prg|ZCL_ABAPGIT_HTML_TOOLBAR======CP        |   265|16.05.2025|08:10:47|    24576|E        |
+|   266|Prg|ZCL_ABAPGIT_GUI_BUTTONS=======CP        |   266|16.05.2025|08:09:27|    12288|E        |
+|   267|Prg|ZIF_ABAPGIT_HTML==============IP        |   265|16.05.2025|08:06:42|    10240|E        |
+|   268|Prg|ZCL_ABAPGIT_GUI_MENUS=========CP        |   268|16.05.2025|08:09:37|    18432|E        |
+|   269|Typ|FILE_TABLE                              |     0|05.01.1999|16:01:10|     4096|         |
+|   270|Prg|SAPLSYST                                |   270|25.11.2021|18:22:54|    52224|E        |
+|   271|Prg|CL_SYSTEM_UUID================CP        |   271|02.05.2022|11:16:31|    75776|E        |
+|   272|Prg|CL_ABAP_TABLEDESCR============CP        |   272|25.11.2021|18:22:20|    36864|E        |
+|   273|Prg|ZCL_ABAPGIT_GUI_CHUNK_LIB=====CP        |   273|16.05.2025|08:09:28|   140288|E        |
+|   274|Prg|CL_ABAP_TSTMP=================CP        |   274|02.05.2022|11:10:18|    60416|E        |
+|   275|Prg|ZCL_ABAPGIT_REPO_LABELS=======CP        |   275|16.05.2025|08:16:20|    30720|E        |
+|   276|Prg|ZCL_ABAPGIT_URL===============CP        |   276|16.05.2025|08:17:12|    23552|E        |
+|   277|Typ|ABAP_SORTORDER                          |     0|19.01.2005|15:10:12|     3072|         |
+|   278|Prg|ZCL_ABAPGIT_HTML_ACTION_UTILS=CP        |   278|16.05.2025|08:10:40|    18432|E        |
+|   279|Prg|ZCL_ABAPGIT_GIT_BRANCH_LIST===CP        |   279|16.05.2025|08:09:13|    35840|E        |
+|   280|Prg|ZIF_ABAPGIT_GIT_DEFINITIONS===IP        |   279|16.05.2025|08:06:42|    20480|E        |
+|   281|Prg|CL_ABAP_CLASSDESCR============CP        |   281|25.11.2021|18:22:20|    30720|E        |
+|   282|Prg|CL_ABAP_OBJECTDESCR===========CP        |   282|25.11.2021|18:22:20|    32768|E        |
+|   283|Prg|ZIF_ABAPGIT_GUI_MENU_PROVIDER=IP        |   281|16.05.2025|08:06:42|     5120|E        |
+|   284|Prg|CL_ABAP_FORMAT================CP        |   284|07.04.2020|13:13:48|    13312|E        |
+|   285|Prg|ZIF_ABAPGIT_GUI_HOTKEY_CTL====IP        |   281|16.05.2025|08:06:42|     7168|E        |
+|   286|Prg|ZIF_ABAPGIT_VERSION===========IP        |   258|16.05.2025|08:06:45|     5120|E        |
+|   287|Prg|CL_ABAP_MATCHER===============CP        |   287|02.05.2022|11:16:24|   497664|E        |
+|   288|Prg|ZCL_ABAPGIT_GUI_CSS_PROCESSOR=CP        |   288|16.05.2025|08:09:31|    33792|E        |
+|   289|Prg|SAPLLANG                                |   289|31.07.2024|19:28:54|    26624|E        |
+|   290|Typ|T002                                    |     0|22.10.2012|15:47:42|     3072|         |
+|   291|Typ|SSCRFIELDS                              |     0|22.10.2012|15:47:29|     5120|         |
+|   292|Typ|SSCRTEXTS                               |     0|15.08.1997|14:15:15|     4096|         |
+|   293|Prg|RSDBSPVA                                |     0|31.07.2024|19:30:49|   220160|E        |
+|   294|Prg|%_CSYDB0                                |     0|03.04.2022|18:49:43|    43008|E        |
+|   295|Typ|RSEXFCODE                               |     0|18.07.1997|17:04:17|     2048|         |
+|   296|Prg|SAPLDSYA                                |   296|02.03.2022|18:07:45|    91136|E        |
+|   297|Prg|SAPFSDS1                                |   296|25.11.2020|16:05:06|    76800|E        |
+|   298|Typ|TDCLD                                   |     0|09.02.2016|17:46:10|     6144|         |
+|   299|Prg|SAPLSDOD                                |   299|02.03.2022|18:00:38|   216064|E        |
+|   300|Typ|DOKIL                                   |     0|07.04.1997|18:29:04|     4096|         |
+|   301|Prg|SAPLSDOC                                |   301|31.07.2024|19:29:51|  1847296|E        |
+|   302|Prg|SAPCNVE                                 |   302|05.02.2018|18:59:48|     8192|E        |
+|   303|Typ|RSVAMEMKEY                              |     0|16.12.1996|19:31:50|     3072|         |
+|   304|Prg|SDYNCONTEXT                             |     0|03.04.2022|18:49:44|     9216|E        |
+|   305|Prg|SAPLSLDB                                |   305|19.05.2022|10:37:10|   118784|E        |
+|   306|Typ|SHDSTU                                  |     0|10.12.1998|13:29:36|     3072|         |
+|   307|Typ|SHDSTCIU                                |     0|10.12.1998|13:29:36|     3072|         |
+|   308|Prg|CL_GUI_EVENT==================CP        |   308|28.05.2018|11:20:41|    11264|E        |
+|   309|Typ|SYST                                    |     0|16.07.2014|19:38:30|    32768|         |
+|   310|Prg|ZIF_ABAPGIT_GUI_ERROR_HANDLER=IP        |   281|16.05.2025|08:06:42|     5120|E        |
+|   311|Prg|ZCL_ABAPGIT_APACK_READER======CP        |   311|16.05.2025|08:08:05|    31744|E        |
+|   312|Prg|ZCL_ABAPGIT_GUI_PAGE_REPO_VIEWCP        |   312|16.05.2025|08:10:09|   105472|E        |
+|   313|Prg|ZCL_ABAPGIT_REPO_ITEM_STATE===CP        |   313|16.05.2025|08:16:19|    25600|E        |
+|   314|Prg|ZIF_ABAPGIT_REPO_ONLINE=======IP        |   312|16.05.2025|08:06:44|     8192|E        |
+|   315|Prg|ZCL_ABAPGIT_HTTP==============CP        |   315|16.05.2025|08:10:49|    28672|E        |
+|   316|Prg|ZCL_ABAPGIT_PROXY_CONFIG======CP        |   316|16.05.2025|08:16:08|    15360|E        |
+|   317|Prg|CL_HTTP_CLIENT================CP        |   317|31.07.2024|19:31:18|   316416|E        |
+|   318|Prg|CL_ABAP_BEHV_AUX==============CP        |   318|03.05.2022|11:40:12|    14336|E        |
+|   319|Prg|IF_HTTP_CLIENT================IP        |   317|09.03.2021|15:27:50|    11264|E        |
+|   320|Prg|SAPLSWLWPURI                            |   320|18.05.2021|11:16:25|    32768|E        |
+|   321|Prg|CL_ABAP_RUNTIME===============CP        |   321|28.05.2018|11:20:07|    10240|E        |
+|   322|Prg|CL_HTTP_REQUEST===============CP        |   322|11.02.2022|15:50:40|    23552|E        |
+|   323|Prg|CL_HTTP_ENTITY================CP        |   323|31.07.2024|19:31:18|    64512|E        |
+|   324|Prg|IF_HTTP_ENTITY================IP        |   323|25.11.2021|19:09:42|    15360|E        |
+|   325|Prg|CL_HTTP_RESPONSE==============CP        |   325|31.08.2022|15:44:50|    28672|E        |
+|   326|Prg|CL_SPFL_PROFILE_PARAMETER=====CP        |   326|31.07.2024|19:31:42|   249856|E        |
+|   327|Prg|SAPLHTTP_RUNTIME                        |   327|31.07.2024|19:28:53|   738304|E        |
+|   328|Prg|SAPLSSFM                                |   328|02.05.2022|11:16:32|   275456|E        |
+|   329|Prg|CL_ABAP_WEAK_REFERENCE========CP        |   329|23.11.2018|17:27:09|     9216|E        |
+|   330|Prg|%_CIHTTP                                |   317|11.02.2022|15:50:34|    52224|E        |
+|   331|Prg|ZCL_ABAPGIT_GIT_FACTORY=======CP        |   331|16.05.2025|08:09:15|     9216|E        |
+|   332|Prg|ZCL_ABAPGIT_GIT_TRANSPORT=====CP        |   332|16.05.2025|08:09:22|    40960|E        |
+|   333|Typ|SRFC_SMETH                              |     0|22.01.2003|11:38:16|     3072|         |
+|   334|Prg|ZCL_ABAPGIT_HTTP_CLIENT=======CP        |   334|16.05.2025|08:10:52|    20480|E        |
+|   335|Prg|CL_HTTP_SERVER================CP        |   335|31.07.2024|19:31:18|   317440|E        |
+|   336|Prg|IF_HTTP_SERVER================IP        |   335|11.02.2022|15:50:43|    17408|E        |
+|   337|Prg|BADI_HTTP_LOCATION============CP        |   337|31.08.2022|15:40:59|    15360|E        |
+|   338|Prg|CL_BADI_BASE==================CP        |   338|15.06.2022|14:22:03|    32768|E        |
+|   339|Prg|CL_BADI_CACHE_HANDLER=========CP        |   339|02.05.2022|11:16:25|    24576|E        |
+|   340|Prg|CL_ABAP_BADI_TRACER===========CP        |   340|11.02.2022|15:45:48|    18432|E        |
+|   341|Prg|CL_SXT_TRACE_OPTIONS==========CP        |   341|25.11.2020|16:56:47|    11264|E        |
+|   342|Prg|IF_SXT_TYPES==================IP        |   341|25.11.2021|19:13:39|    10240|E        |
+|   343|Prg|CL_SXT_TRACER_FACTORY=========CP        |   343|25.11.2021|19:13:39|    20480|E        |
+|   344|Prg|CL_SXT_TRACER=================CP        |   344|02.05.2022|11:16:31|   186368|E        |
+|   345|Prg|CL_SXT_RT_DB_TRACE_WRITER=====CP        |   345|02.05.2022|11:16:31|    80896|E        |
+|   346|Prg|CL_SXT_ACTIVATION_HANDLER=====CP        |   346|02.05.2022|11:16:31|    54272|E        |
+|   347|Prg|CL_SXT_MEMORY_LIMITS==========CP        |   347|02.05.2022|11:16:31|    71680|E        |
+|   348|Prg|CL_REQUEST_ENTRY_POINT========CP        |   348|02.05.2022|11:16:28|    20480|E        |
+|   349|Typ|SXT_ACT                                 |     0|25.11.2020|14:37:43|     5120|         |
+|   350|Prg|CL_SXT_E2E_ACTIVATION=========CP        |   350|02.05.2022|11:08:20|    18432|E        |
+|   351|Prg|CL_EPP_GLOBAL_FACTORY=========CP        |   351|02.05.2022|11:16:27|    21504|E        |
+|   352|Prg|CL_EPP_GLOBAL=================CP        |   352|02.05.2022|11:16:27|    33792|E        |
+|   353|Prg|CL_EPP_CORE===================CP        |   353|02.05.2022|11:16:27|   122880|E        |
+|   354|Prg|IF_EPP_GLOBAL_SECTION=========IP        |   352|11.02.2022|15:40:57|     9216|E        |
+|   355|Prg|CL_HTTP_LOCATION_DEFAULT======CP        |   355|02.05.2022|11:16:27|    11264|E        |
+|   356|Prg|IF_HTTP_LOCATION_PLUGIN=======IP        |   335|25.11.2021|19:09:42|     6144|E        |
+|   357|Prg|CL_ADMIN_SERVICE_PROCESSING===CP        |   357|02.05.2022|11:16:24|   373760|E        |
+|   358|Prg|ZCL_ABAPGIT_LOGIN_MANAGER=====CP        |   358|16.05.2025|08:11:03|    17408|E        |
+|   359|Prg|CL_ICF_RECORDER===============CP        |   359|09.09.2011|21:12:47|    11264|E        |
+|   360|Prg|SAPLSHTTP                               |   360|31.07.2024|19:29:56|   406528|E        |
+|   361|Typ|PPROXY_G                                |     0|09.09.2011|20:54:46|     4096|         |
+|   362|Prg|CL_HTTP_CLIENT_ACL============CP        |   362|02.05.2022|11:06:49|    36864|E        |
+|   363|Typ|ICFRECORDER                             |     0|28.05.2018|11:20:02|    15360|         |
+|   364|Prg|ZCL_ABAPGIT_GIT_UTILS=========CP        |   364|16.05.2025|08:09:24|    14336|E        |
+|   365|Typ|MATCH_RESULT                            |     0|18.11.2005|14:35:11|     3072|         |
+|   366|Typ|SUBMATCH_RESULT                         |     0|03.06.2004|11:21:25|     2048|         |
+|   367|Prg|ZCL_ABAPGIT_GIT_TAG===========CP        |   367|16.05.2025|08:09:20|     9216|E        |
+|   368|Prg|ZCL_ABAPGIT_SAP_PACKAGE=======CP        |   368|16.05.2025|08:16:31|    36864|E        |
+|   369|Prg|CL_PACKAGE_FACTORY============CP        |   369|19.05.2022|10:43:11|    82944|E        |
+|   370|Prg|SAPLALFA                                |   370|16.07.2014|19:38:29|     8192|E        |
+|   371|Prg|CL_PACKAGE====================CP        |   371|15.06.2022|14:22:03|   490496|E        |
+|   372|Prg|CL_PACKAGE_PARAMETERS=========CP        |   372|02.03.2022|18:00:30|    47104|E        |
+|   373|Prg|CL_PACKAGE_PARAMETERS_LAZY====CP        |   373|02.03.2022|18:00:30|    17408|E        |
+|   374|Prg|CL_PACKAGE_INTERFACE==========CP        |   374|19.05.2022|10:43:11|   336896|E        |
+|   375|Prg|CL_PACKAGE_INTERFACE_ELEMENT==CP        |   375|19.05.2022|10:43:11|   183296|E        |
+|   376|Prg|CL_PACKAGE_PERMISSION_TO_USE==CP        |   376|19.05.2022|10:43:11|    98304|E        |
+|   377|Typ|SCOMPKDTLN                              |     0|25.11.2020|14:36:46|    11264|         |
+|   378|Prg|CL_PACKAGE_HELPER=============CP        |   378|19.05.2022|10:43:11|   139264|E        |
+|   379|Prg|SAPLSCTSDLVU                            |   379|30.05.2022|14:51:25|    36864|E        |
+|   380|Typ|TRDLVUNIT                               |     0|18.11.2005|14:35:21|     3072|         |
+|   381|Prg|CL_EXITHANDLER================CP        |   381|31.07.2024|19:31:15|    53248|E        |
+|   382|Prg|IF_EX_WB_PACKAGE_DEFAULTS=====IP        |   264|09.03.2021|15:27:34|    11264|E        |
+|   383|Prg|CL_ABAP_INTFDESCR=============CP        |   383|25.11.2020|16:56:23|    24576|E        |
+|   384|Prg|SAPLSEXV                                |   384|31.07.2024|19:30:32|   163840|E        |
+|   385|Prg|CL_EX_WB_PACKAGE_DEFAULTS=====CP        |   385|09.03.2021|15:27:33|    40960|E        |
+|   386|Prg|CL_BADI_FLT_DATA_TRANS_AND_DB=CP        |   386|31.05.2022|12:00:38|    47104|E        |
+|   387|Typ|SXC_EXIT                                |     0|01.02.2001|17:25:41|     3072|         |
+|   388|Typ|DF14L                                   |     0|22.10.2012|15:42:14|     7168|         |
+|   389|Typ|BMSEL                                   |     0|28.03.2000|09:40:54|     3072|         |
+|   390|Prg|SAPLSF01                                |   390|02.03.2022|18:00:38|   759808|E        |
+|   391|Typ|BMOBJECT                                |     0|09.09.2011|20:56:03|     6144|         |
+|   392|Typ|BMCOMP                                  |     0|22.10.2012|15:40:39|     8192|         |
+|   393|Prg|SAPLSTMG                                |   393|19.05.2022|10:45:27|   101376|E        |
+|   394|Typ|TCETRAL                                 |     0|28.05.2009|08:12:49|     2048|         |
+|   395|Typ|TCETRALT                                |     0|28.05.2009|08:12:49|     3072|         |
+|   396|Typ|SFW_SWITCHPOSITION                      |     0|16.07.2014|19:38:15|     3072|         |
+|   397|Prg|SAPLSFW_COMMON_SYSTEM                   |   397|19.05.2022|10:42:50|    30720|E        |
+|   398|Prg|SAPLPA_PACKAGE_SERVICES                 |   398|19.05.2022|10:43:11|   316416|E        |
+|   399|Prg|%_CTPAK                                 |   371|02.03.2022|18:00:27|    37888|E        |
+|   400|Prg|ZCL_ABAPGIT_REPO_NEWS=========CP        |   400|16.05.2025|08:16:22|    37888|E        |
+|   401|Prg|ZCL_ABAPGIT_APACK_HELPER======CP        |   401|16.05.2025|08:08:02|    49152|E        |
+|   402|Prg|ZCL_ABAPGIT_PROGRESS==========CP        |   402|16.05.2025|08:16:04|    12288|E        |
+|   403|Prg|CL_APC_WS_PROGRESS_INDICATOR==CP        |   403|02.05.2022|11:16:17|    23552|E        |
+|   404|Prg|CX_APC_WS_PROGRESS_INDICATOR==CP        |   404|25.11.2021|18:22:44|    12288|E        |
+|   405|Prg|ZCL_ABAPGIT_GIT_PORCELAIN=====CP        |   405|16.05.2025|08:09:19|    62464|E        |
+|   406|Prg|CL_ABAP_CONV_OUT_CE===========CP        |   406|11.02.2022|15:40:59|    19456|E        |
+|   407|Prg|IF_ABAP_CONV_OUT==============IP        |   250|11.02.2022|15:41:00|     6144|E        |
+|   408|Prg|IF_HTTP_HEADER_FIELDS=========IP        |   323|13.02.2015|19:47:03|    12288|E        |
+|   409|Prg|IF_HTTP_HEADER_FIELDS_SAP=====IP        |   323|16.05.2016|12:58:09|    11264|E        |
+|   410|Prg|ZCL_ABAPGIT_GIT_PACK==========CP        |   410|16.05.2025|08:09:17|    80896|E        |
+|   411|Prg|CL_ABAP_GZIP==================CP        |   411|31.07.2024|19:29:44|    27648|E        |
+|   412|Prg|ZCL_ABAPGIT_HASH==============CP        |   412|16.05.2025|08:10:38|    17408|E        |
+|   413|Prg|CL_ABAP_HMAC==================CP        |   413|09.09.2011|21:10:51|    31744|E        |
+|   414|Prg|ZCL_ABAPGIT_GIT_URL===========CP        |   414|16.05.2025|08:09:23|    20480|E        |
+|   415|Prg|ZCL_ABAPGIT_PERSIST_BACKGROUNDCP        |   415|16.05.2025|08:15:49|    18432|E        |
+|   416|Prg|SAPLSFW_PREPUT_RELEVANT                 |   416|13.02.2015|19:44:00|    14336|E        |
+|   417|Prg|ZCL_ABAPGIT_REPO_CONTENT_LIST=CP        |   417|16.05.2025|08:16:16|    33792|E        |
+|   418|Prg|ZCL_ABAPGIT_LOG===============CP        |   418|16.05.2025|08:11:02|    41984|E        |
+|   419|Prg|ZCL_ABAPGIT_REPO_STATUS=======CP        |   419|16.05.2025|08:16:29|   129024|E        |
+|   420|Prg|ZCL_ABAPGIT_SERIALIZE=========CP        |   420|16.05.2025|08:16:33|   128000|E        |
+|   421|Typ|RZLLICLASS                              |     0|16.07.2014|19:38:07|     3072|         |
+|   422|Typ|RZLLITAB                                |     0|16.07.2014|19:38:07|     5120|         |
+|   423|Prg|SAPLSMLG                                |   423|25.11.2021|18:22:53|   123904|E        |
+|   424|Prg|/1BCDWBEN/SAPLSEN0022                   |   424|09.03.2021|15:41:48|   244736|E        |
+|   425|Typ|MSXXLIST                                |     0|16.07.2014|19:37:46|     3072|         |
+|   426|Typ|MSXXLIST_V6                             |     0|16.07.2014|19:37:46|     5120|         |
+|   427|Prg|CL_STSK_UTIL==================CP        |   427|25.11.2020|16:56:46|     9216|E        |
+|   428|Prg|CL_RFC========================CP        |   428|31.07.2024|19:28:44|    21504|E        |
+|   429|Prg|ZCL_ABAPGIT_LXE_TEXTS=========CP        |   429|16.05.2025|08:11:07|    51200|E        |
+|   430|Prg|ZCL_ABAPGIT_ABAP_LANGUAGE_VERSCP        |   430|16.05.2025|08:07:51|    48128|E        |
+|   431|Prg|ZCL_ABAPGIT_FEATURE===========CP        |   431|16.05.2025|08:08:58|    15360|E        |
+|   432|Prg|ZCL_ABAPGIT_DATA_CONFIG=======CP        |   432|16.05.2025|08:08:19|    26624|E        |
+|   433|Prg|ZIF_ABAPGIT_DATA_CONFIG=======IP        |   120|16.05.2025|08:06:41|    11264|E        |
+|   434|Prg|ZCL_ABAPGIT_XML_PRETTY========CP        |   434|16.05.2025|08:17:22|    18432|E        |
+|   435|Prg|CL_IXML=======================CP        |   435|25.11.2020|16:56:38|   257024|E        |
+|   436|Prg|CL_IXML_UNKNOWN===============CP        |   436|13.02.2015|19:49:42|     8192|E        |
+|   437|Prg|IF_IXML_ENCODING==============IP        |   434|25.11.2020|16:56:57|     6144|E        |
+|   438|Prg|ZCL_ABAPGIT_DATA_FACTORY======CP        |   438|16.05.2025|08:08:22|    11264|E        |
+|   439|Prg|ZCL_ABAPGIT_DATA_SERIALIZER===CP        |   439|16.05.2025|08:08:24|    26624|E        |
+|   440|Prg|ZCL_ABAPGIT_TADIR=============CP        |   440|16.05.2025|08:16:59|    45056|E        |
+|   441|Prg|ZCL_ABAPGIT_FOLDER_LOGIC======CP        |   441|16.05.2025|08:09:05|    61440|E        |
+|   442|Prg|ZCL_ABAPGIT_OBJECT_DCLS=======CP        |   442|16.05.2025|08:12:09|    32768|E        |
+|   443|Prg|CL_ACM_DCL_HANDLER_FACTORY====CP        |   443|15.06.2022|14:21:50|    11264|E        |
+|   444|Prg|CL_ACM_DCL_HANDLER============CP        |   444|15.06.2022|14:22:42|   254976|E        |
+|   445|Prg|CL_ACMDTAPI_DCL_PARSER========CP        |   445|15.06.2022|14:22:42|    70656|E        |
+|   446|Prg|ZCL_ABAPGIT_OBJECT_DDLS=======CP        |   446|16.05.2025|08:12:10|    44032|E        |
+|   447|Prg|CL_DD_DDL_HANDLER_FACTORY=====CP        |   447|31.07.2024|19:30:33|    14336|E        |
+|   448|Prg|CL_DD_DDL_HANDLER=============CP        |   448|31.07.2024|19:30:33|   978944|E        |
+|   449|Prg|IF_DD_DDL_ANNOTATIONS=========IP        |   448|03.05.2022|11:43:29|   138240|E        |
+|   450|Prg|IF_DD_DDL_HANDLER=============IP        |   446|02.05.2022|11:17:37|    28672|E        |
+|   451|Typ|DDDDLSRC09BV                            |     0|23.02.2016|17:53:37|     4096|         |
+|   452|Typ|DDDDLSRCV                               |     0|15.02.2018|11:00:02|     5120|         |
+|   453|Typ|DDDDLGOTSTATE                           |     0|23.02.2016|17:50:50|     3072|         |
+|   454|Prg|IF_DD_SOBJECT_CONSTANTS=======IP        |   448|25.11.2020|16:38:03|    11264|E        |
+|   455|Prg|IF_DD_DDL_CONSTANTS===========IP        |   448|03.04.2022|18:49:46|    15360|E        |
+|   456|Typ|DCDDLGETSTATE                           |     0|13.04.2016|14:32:36|     3072|         |
+|   457|Typ|DDDDLSRC                                |     0|05.02.2018|17:47:18|     4096|         |
+|   458|Prg|RADBTDDO                                |   448|25.11.2020|14:37:28|    53248|E        |
+|   459|Prg|RADDDLDF                                |   448|19.02.2020|13:58:30|   143360|E        |
+|   460|Prg|RADDDLUT                                |   448|03.04.2022|18:49:46|    72704|E        |
+|   461|Typ|DDDDLSRCT                               |     0|16.07.2014|19:37:31|     3072|         |
+|   462|Typ|DDDDLSSTATE                             |     0|16.07.2014|19:37:31|     3072|         |
+|   463|Prg|IF_DD_CDS_CONSTANTS===========IP        |   448|03.04.2022|19:01:12|    17408|E        |
+|   464|Typ|DDDDLSRC09B                             |     0|23.02.2016|17:53:37|     4096|         |
+|   465|Prg|RADBONDUT                               |   448|06.04.2022|09:11:23|   193536|E        |
+|   466|Typ|DDDDLSRC12B                             |     0|23.02.2016|17:53:37|     3072|         |
+|   467|Typ|DDDDLSRC12BV                            |     0|23.02.2016|17:50:51|     4096|         |
+|   468|Typ|DDDDLSRC12BT                            |     0|23.02.2016|17:53:38|     3072|         |
+|   469|Prg|ZCL_ABAPGIT_OBJECT_DDLX=======CP        |   469|16.05.2025|08:12:12|    36864|E        |
+|   470|Prg|CL_DDLX_ADT_OBJECT_PERSIST====CP        |   470|15.06.2022|14:22:03|   116736|E        |
+|   471|Prg|CL_BLUE_OBJECT_PERSIST========CP        |   471|15.06.2022|14:22:03|    46080|E        |
+|   472|Prg|IF_WB_OBJECT_PERSIST==========IP        |   469|23.03.2022|14:01:19|    14336|E        |
+|   473|Prg|CL_DDLX_WB_OBJECT_DATA========CP        |   473|31.05.2022|12:00:37|    36864|E        |
+|   474|Prg|CL_BLUE_SOURCE_OBJECT_DATA====CP        |   474|31.05.2022|12:00:37|    37888|E        |
+|   475|Prg|CL_BLUE_GENERIC_OBJECT_DATA===CP        |   475|31.05.2022|12:00:37|    46080|E        |
+|   476|Prg|IF_WB_OBJECT_DATA_MODEL=======IP        |   469|11.02.2022|15:52:51|    16384|E        |
+|   477|Prg|IF_WB_OBJECT_DATA_SELECTION_COIP        |   471|23.02.2016|18:37:40|    10240|E        |
+|   478|Prg|ZCL_ABAPGIT_OBJECT_DEVC=======CP        |   478|16.05.2025|08:12:14|    74752|E        |
+|   479|Prg|ZCL_ABAPGIT_OBJECT_FUGR=======CP        |   479|16.05.2025|08:13:08|   156672|E        |
+|   480|Prg|SAPLSEUF                                |   480|31.07.2024|19:30:02|   863232|E        |
+|   481|Typ|TLIBG                                   |     0|28.05.2009|08:12:49|     2048|         |
+|   482|Prg|ZCL_ABAPGIT_OBJECT_INTF=======CP        |   482|16.05.2025|08:13:25|   237568|E        |
+|   483|Prg|ZCL_ABAPGIT_OO_INTERFACE======CP        |   483|16.05.2025|08:15:39|    31744|E        |
+|   484|Prg|ZCL_ABAPGIT_AFF_REGISTRY======CP        |   484|16.05.2025|08:07:54|    19456|E        |
+|   485|Prg|ZCL_ABAPGIT_OBJECT_PROG=======CP        |   485|16.05.2025|08:13:54|    80896|E        |
+|   486|Prg|ZCL_ABAPGIT_OBJECT_TABL=======CP        |   486|16.05.2025|08:14:57|   122880|E        |
+|   487|Typ|SYCH_TABLES_ENTRY                       |     0|28.05.2009|08:12:48|     2048|         |
+|   488|Prg|SAPLSDNT                                |   488|31.07.2024|19:28:44|   368640|E        |
+|   489|Prg|ZCL_ABAPGIT_OBJECT_VIEW=======CP        |   489|16.05.2025|08:15:18|    69632|E        |
+|   490|Prg|CL_DD_DDL_UTILITIES===========CP        |   490|31.07.2024|19:31:13|   279552|E        |
+|   491|Prg|ZCL_ABAPGIT_REPO_FILTER=======CP        |   491|16.05.2025|08:16:18|    18432|E        |
+|   492|Prg|SAPLSPBT                                |   492|05.03.2023|11:39:53|   178176|E        |
+|   493|Prg|CL_PRFC_KERNEL_TRACE==========CP        |   493|25.11.2020|16:18:04|     8192|E        |
+|   494|Typ|PBTRESOURC                              |     0|28.05.2018|11:20:50|     3072|         |
+|   495|Prg|CL_ABAP_RANDOM================CP        |   495|25.11.2021|18:22:20|    21504|E        |
+|   496|Prg|SAPLSAL2                                |   496|25.11.2021|18:22:53|    98304|E        |
+|   497|Prg|%_CPBTMO                                |   496|28.05.2018|11:20:50|    10240|E        |
+|   498|Typ|RZLLIAPSRV                              |     0|19.04.1996|16:42:53|     2048|         |
+|   499|Typ|KO100                                   |     0|18.01.1995|16:23:50|     3072|         |
+|   500|Prg|SAPLTR_OBJECTS                          |   500|06.04.2021|14:55:42|    57344|E        |
+|   501|Typ|KO105                                   |     0|22.03.1996|12:24:11|     2048|         |
+|   502|Typ|OBJH                                   |     0|28.05.2009|08:10:56|     6144|          |
+|   503|Typ|OBJT                                    |     0|22.10.2012|15:44:47|     3072|         |
+|   504|Prg|ZCL_ABAPGIT_OBJECTS_BRIDGE====CP        |   504|16.05.2025|08:11:14|    36864|E        |
+|   505|Prg|ZCX_ABAPGIT_TYPE_NOT_SUPPORTEDCP        |   505|16.05.2025|08:17:36|    17408|E        |
+|   506|Prg|ZCX_ABAPGIT_EXCEPTION=========CP        |   506|16.05.2025|08:17:33|    78848|E        |
+|   507|Prg|ZCL_ABAPGIT_OBJECT_ACID=======CP        |   507|16.05.2025|08:11:28|    29696|E        |
+|   508|Prg|ZCL_ABAPGIT_OBJECT_AIFC=======CP        |   508|16.05.2025|08:11:30|    48128|E        |
+|   509|Prg|/AIF/CL_ABAPGIT_AIFC_UTIL=====CP        |   509|31.07.2024|19:26:21|    71680|E        |
+|   510|Prg|/AIF/CL_DBA_ICD_MGR===========CP        |   510|25.11.2021|18:39:35|    11264|E        |
+|   511|Prg|/AIF/CL_DBA_ICD_DATA==========CP        |   511|25.11.2021|18:39:34|    50176|E        |
+|   512|Prg|/AIF/CL_DBA_BASE==============CP        |   512|25.11.2020|16:56:16|    11264|E        |
+|   513|Prg|/AIF/CL_ICD_DATA_HELPER_EXTRACCP        |   513|31.07.2024|19:29:43|   249856|E        |
+|   514|Prg|/AIF/CL_ICD_DATA_HELPER=======CP        |   514|31.07.2024|19:26:22|   248832|E        |
+|   515|Prg|/AIF/IF_ICD_DATA_HELPER_EXTRACIP        |   509|31.07.2024|19:26:22|    18432|E        |
+|   516|Prg|/AIF/CL_LICENSE_CHECK_MANAGER=CP        |   516|11.01.2022|15:40:07|    38912|E        |
+|   517|Prg|ZCL_ABAPGIT_OBJECT_AMSD=======CP        |   517|16.05.2025|08:11:31|    36864|E        |
+|   518|Prg|CL_AMDP_SCHEMA_OBJECT_DATA====CP        |   518|31.05.2022|12:00:37|    44032|E        |
+|   519|Prg|CL_BLUE_OBJECT_DATA===========CP        |   519|31.05.2022|12:00:37|    23552|E        |
+|   520|Typ|SADT_OBJECT_REFERENCE                   |     0|09.09.2011|20:55:24|     3072|         |
+|   521|Typ|SADT_PACKAGE_REFERENCE                  |     0|09.09.2011|20:56:53|     3072|         |
+|   522|Prg|CL_AMDP_SCHEMA_OBJECT_PERSIST=CP        |   522|31.05.2022|12:00:37|    65536|E        |
+|   523|Prg|ZCL_ABAPGIT_OBJECT_APIS=======CP        |   523|16.05.2025|08:11:33|    32768|E        |
+|   524|Typ|ARS_S_API_ABAPGIT                       |     0|16.03.2020|13:28:33|     4096|         |
+|   525|Prg|ZCL_ABAPGIT_OBJECT_APLO=======CP        |   525|16.05.2025|08:11:34|    19456|E        |
+|   526|Prg|ZCL_ABAPGIT_OBJECT_COMMON_AFF=CP        |   526|16.05.2025|08:12:01|    65536|E        |
+|   527|Prg|CL_AFF_OBJECT_HANDLER_FACTORY=CP        |   527|11.02.2022|15:44:28|    14336|E        |
+|   528|Prg|IF_AFF_OBJECT_HANDLER_FACTORY=IP        |   526|11.01.2022|15:45:27|     5120|E        |
+|   529|Prg|CL_WV_OBJECT_TYPE=============CP        |   529|31.05.2022|12:00:38|    54272|E        |
+|   530|Prg|CL_WB_OBJECT_TYPE=============CP        |   530|19.05.2022|10:50:25|   129024|E        |
+|   531|Prg|CL_WB_REGISTRY================CP        |   531|19.05.2022|10:48:14|    80896|E        |
+|   532|Prg|IF_WB_OBJTYPE_PROVIDER========IP        |   531|11.01.2022|15:48:05|     8192|E        |
+|   533|Prg|CL_WB_REGISTRY_SHM_AREA=======CP        |   533|25.11.2021|18:22:42|    47104|E        |
+|   534|Prg|CL_WB_REGISTRY_SHM_METADATA===CP        |   534|15.06.2022|14:22:04|    71680|E        |
+|   535|Typ|WBOBJTYPE_DISC_RES_T                    |     0|05.02.2018|17:47:06|     3072|         |
+|   536|Typ|WBOBJTYPE_RESOURCE                      |     0|11.11.2019|13:44:49|     4096|         |
+|   537|Typ|WBOBJECTTYPE_RT                         |     0|11.11.2019|13:44:49|    10240|         |
+|   538|Typ|WBOBJTYPE_SCOPE_RT                      |     0|09.09.2011|20:57:03|     3072|         |
+|   539|Typ|WVOBJECTTYPE_RT                         |     0|09.09.2011|20:56:55|     3072|         |
+|   540|Prg|CL_WB_REGISTRY_SHM_ROOT=======CP        |   540|13.02.2015|19:49:42|     8192|E        |
+|   541|Prg|IE_OBJTYPE_SCOPE==============IP        |   529|02.03.2022|18:12:21|     8192|E        |
+|   542|Typ|WBOBJTYPE                               |     0|09.09.2011|20:55:50|     2048|         |
+|   543|Typ|WVOBJTYPE_SCOPE                         |     0|09.09.2011|20:55:55|     3072|         |
+|   544|Prg|CL_WB_REG_TOOL_UTIL===========CP        |   544|19.05.2022|10:45:16|    11264|E        |
+|   545|Prg|CL_APLO_AFF_OBJECT_HANDLER====CP        |   545|02.05.2022|11:11:31|    57344|E        |
+|   546|Prg|CL_AFF_OBJECT_HANDLER=========CP        |   546|11.02.2022|15:44:28|    86016|E        |
+|   547|Prg|CL_AFF_LOCK_WRAPPER===========CP        |   547|15.02.2021|09:36:57|    18432|E        |
+|   548|Prg|IF_AFF_OBJECT_HANDLER=========IP        |   529|23.03.2022|13:49:39|     7168|E        |
+|   549|Prg|ZCL_ABAPGIT_OBJECT_AQBG=======CP        |   549|16.05.2025|08:11:36|    32768|E        |
+|   550|Prg|ZCL_ABAPGIT_OBJECT_AQQU=======CP        |   550|16.05.2025|08:11:37|    29696|E        |
+|   551|Prg|ZCL_ABAPGIT_OBJECT_AQSG=======CP        |   551|16.05.2025|08:11:39|    29696|E        |
+|   552|Prg|ZCL_ABAPGIT_OBJECT_AREA=======CP        |   552|16.05.2025|08:11:40|    34816|E        |
+|   553|Prg|ZCL_ABAPGIT_OBJECT_ASFC=======CP        |   553|16.05.2025|08:11:41|    26624|E        |
+|   554|Prg|ZCL_ABAPGIT_OBJECT_AUTH=======CP        |   554|16.05.2025|08:11:43|    39936|E        |
+|   555|Prg|ZCL_ABAPGIT_OBJECT_AVAR=======CP        |   555|16.05.2025|08:11:44|    31744|E        |
+|   556|Prg|ZCL_ABAPGIT_OBJECT_AVAS=======CP        |   556|16.05.2025|08:11:45|    46080|E        |
+|   557|Prg|ZCL_ABAPGIT_OBJECT_BDEF=======CP        |   557|16.05.2025|08:11:46|    43008|E        |
+|   558|Prg|CL_BDEF_OBJECT_PERSIST========CP        |   558|15.06.2022|14:22:47|   165888|E        |
+|   559|Prg|ZCL_ABAPGIT_OBJECT_CDBO=======CP        |   559|16.05.2025|08:11:49|    23552|E        |
+|   560|Prg|CX_SWV_EXCEPTION==============CP        |   560|25.11.2021|18:22:45|    12288|E        |
+|   561|Prg|ZCL_ABAPGIT_OBJECT_CHAR=======CP        |   561|16.05.2025|08:11:50|    72704|E        |
+|   562|Prg|ZCL_ABAPGIT_OBJECT_CHDO=======CP        |   562|16.05.2025|08:11:51|    69632|E        |
+|   563|Prg|ZCL_ABAPGIT_OBJECT_CHKC=======CP        |   563|16.05.2025|08:11:52|    21504|E        |
+|   564|Prg|CL_CHKC_AFF_OBJECTHANDLER=====CP        |   564|11.01.2022|15:34:12|    55296|E        |
+|   565|Prg|ZCL_ABAPGIT_OBJECT_CHKO=======CP        |   565|16.05.2025|08:11:53|    21504|E        |
+|   566|Prg|CL_CHKO_AFF_OBJECTHANDLER=====CP        |   566|11.01.2022|15:34:12|    50176|E        |
+|   567|Prg|ZCL_ABAPGIT_OBJECT_CHKV=======CP        |   567|16.05.2025|08:11:54|    21504|E        |
+|   568|Prg|CL_CHKV_AFF_OBJECTHANDLER=====CP        |   568|11.01.2022|15:34:12|    58368|E        |
+|   569|Prg|ZCL_ABAPGIT_OBJECT_CMOD=======CP        |   569|16.05.2025|08:11:58|    59392|E        |
+|   570|Prg|ZCL_ABAPGIT_OBJECT_CMPT=======CP        |   570|16.05.2025|08:12:00|    30720|E        |
+|   571|Prg|CL_CMP_TEMPLATE===============CP        |   571|31.07.2024|19:28:45|    55296|E        |
+|   572|Prg|ZCL_ABAPGIT_OBJECT_CUS0=======CP        |   572|16.05.2025|08:12:04|    33792|E        |
+|   573|Prg|ZCL_ABAPGIT_OBJECT_CUS1=======CP        |   573|16.05.2025|08:12:06|    37888|E        |
+|   574|Prg|ZCL_ABAPGIT_OBJECT_CUS2=======CP        |   574|16.05.2025|08:12:07|    34816|E        |
+|   575|Prg|ZCL_ABAPGIT_OBJECT_DIAL=======CP        |   575|16.05.2025|08:12:15|    41984|E        |
+|   576|Prg|ZCL_ABAPGIT_OBJECT_DOCT=======CP        |   576|16.05.2025|08:12:17|    36864|E        |
+|   577|Prg|ZCL_ABAPGIT_LONGTEXTS=========CP        |   577|16.05.2025|08:11:06|    33792|E        |
+|   578|Prg|ZCL_ABAPGIT_OBJECT_DOCV=======CP        |   578|16.05.2025|08:12:18|    35840|E        |
+|   579|Prg|ZCL_ABAPGIT_OBJECT_DOMA=======CP        |   579|16.05.2025|08:12:19|    61440|E        |
+|   580|Prg|ZCL_ABAPGIT_OBJECT_DRTY=======CP        |   580|16.05.2025|08:12:21|    22528|E        |
+|   581|Prg|ZCL_ABAPGIT_OBJECT_DRUL=======CP        |   581|16.05.2025|08:12:23|    37888|E        |
+|   582|Prg|CL_DRUL_WB_OBJECT_PERSIST=====CP        |   582|31.05.2022|12:00:37|    66560|E        |
+|   583|Prg|ZCL_ABAPGIT_OBJECT_DSFD=======CP        |   583|16.05.2025|08:12:24|    23552|E        |
+|   584|Prg|ZCL_ABAPGIT_OBJECT_DSFI=======CP        |   584|16.05.2025|08:12:25|    22528|E        |
+|   585|Prg|CL_DSFI_WB_ACCESS=============CP        |   585|15.06.2022|14:22:03|    94208|E        |
+|   586|Prg|CL_BLUE_JSON_WB_ACCESS========CP        |   586|15.06.2022|14:22:03|   154624|E        |
+|   587|Prg|CL_BLUE_WB_ACCESS=============CP        |   587|15.06.2022|14:22:03|   190464|E        |
+|   588|Prg|CL_WB_ABSTRACT_TOOL===========CP        |   588|15.06.2022|14:22:23|   251904|E        |
+|   589|Prg|CL_DDIC_ADT_OBJ_UTILITY=======CP        |   589|15.06.2022|14:22:03|    28672|E        |
+|   590|Prg|CL_DSFI_JSON_SCHEMA_ACCESS====CP        |   590|23.03.2022|13:58:24|    11264|E        |
+|   591|Prg|CL_BLUE_JSON_SCHEMA===========CP        |   591|15.06.2022|14:22:03|    25600|E        |
+|   592|Prg|CL_ADT_REST_RESOURCE==========CP        |   592|02.05.2022|11:16:24|    33792|E        |
+|   593|Prg|CL_DSFI_JSON_CONFIG_ACCESS====CP        |   593|03.04.2022|18:54:40|    11264|E        |
+|   594|Prg|CL_BLUE_JSON_CONFIGURATION====CP        |   594|02.05.2022|11:16:25|    32768|E        |
+|   595|Prg|ZCL_ABAPGIT_OBJECT_DSYS=======CP        |   595|16.05.2025|08:12:27|    39936|E        |
+|   596|Prg|ZCL_ABAPGIT_OBJECT_DTDC=======CP        |   596|16.05.2025|08:12:29|    40960|E        |
+|   597|Prg|IF_T100_MESSAGE===============IP        |   596|25.11.2020|16:56:58|     7168|E        |
+|   598|Prg|CL_DTDC_OBJECT_PERSIST========CP        |   598|31.05.2022|12:00:37|    79872|E        |
+|   599|Prg|ZCL_ABAPGIT_OBJECT_DTEB=======CP        |   599|16.05.2025|08:12:30|    22528|E        |
+|   600|Prg|ZCL_ABAPGIT_OBJECT_DTEL=======CP        |   600|16.05.2025|08:12:31|    74752|E        |
+|   601|Prg|ZCL_ABAPGIT_OBJECT_ECAT=======CP        |   601|16.05.2025|08:12:32|    21504|E        |
+|   602|Prg|ZCL_ABAPGIT_OBJECT_ECATT_SUPERCP        |   602|16.05.2025|08:12:34|    57344|E        |
+|   603|Prg|ZCL_ABAPGIT_OBJECT_ECSD=======CP        |   603|16.05.2025|08:12:35|    21504|E        |
+|   604|Prg|ZCL_ABAPGIT_OBJECT_ECSP=======CP        |   604|16.05.2025|08:12:36|    20480|E        |
+|   605|Prg|ZCL_ABAPGIT_OBJECT_ECTC=======CP        |   605|16.05.2025|08:12:37|    21504|E        |
+|   606|Prg|ZCL_ABAPGIT_OBJECT_ECTD=======CP        |   606|16.05.2025|08:12:39|    21504|E        |
+|   607|Prg|ZCL_ABAPGIT_OBJECT_ECVO=======CP        |   607|16.05.2025|08:12:40|    20480|E        |
+|   608|Prg|ZCL_ABAPGIT_OBJECT_EEEC=======CP        |   608|16.05.2025|08:12:41|    22528|E        |
+|   609|Prg|/IWXBE/CL_EEEC_AFF_OBJECTHANDLCP        |   609|31.07.2024|19:33:30|    38912|E        |
+|   610|Prg|ZCL_ABAPGIT_OBJECT_ENHC=======CP        |   610|16.05.2025|08:12:43|    36864|E        |
+|   611|Prg|ZCL_ABAPGIT_OBJECT_ENHO=======CP        |   611|16.05.2025|08:12:44|    38912|E        |
+|   612|Prg|ZCL_ABAPGIT_OBJECT_ENHS=======CP        |   612|16.05.2025|08:12:54|    32768|E        |
+|   613|Prg|ZCL_ABAPGIT_OBJECT_ENQU=======CP        |   613|16.05.2025|08:12:58|    38912|E        |
+|   614|Prg|ZCL_ABAPGIT_OBJECT_ENSC=======CP        |   614|16.05.2025|08:12:59|    31744|E        |
+|   615|Prg|ZCL_ABAPGIT_OBJECT_EVTB=======CP        |   615|16.05.2025|08:13:00|    23552|E        |
+|   616|Prg|CL_EVTB_AFF_OBJECT_HANDLER====CP        |   616|31.07.2024|19:33:30|    65536|E        |
+|   617|Prg|/IWXBE/CL_REPOSITORY_OBSERVER=CP        |   617|31.07.2024|19:33:32|   102400|E        |
+|   618|Prg|/IWXBE/IF_REGISTRY_TYPES======IP        |   616|31.07.2024|19:33:30|    25600|E        |
+|   619|Prg|ZCL_ABAPGIT_OBJECT_FDT0=======CP        |   619|16.05.2025|08:13:02|    72704|E        |
+|   620|Prg|ZCL_ABAPGIT_OBJECT_FORM=======CP        |   620|16.05.2025|08:13:04|    58368|E        |
+|   621|Prg|ZCL_ABAPGIT_OBJECT_FTGL=======CP        |   621|16.05.2025|08:13:06|    32768|E        |
+|   622|Typ|FTGL_S_WB_FEATURE_TOGGLE                |     0|19.05.2022|10:37:00|     5120|         |
+|   623|Prg|ZCL_ABAPGIT_OBJECT_FUGS=======CP        |   623|16.05.2025|08:13:08|    55296|E        |
+|   624|Prg|ZCL_ABAPGIT_OBJECT_G4BA=======CP        |   624|16.05.2025|08:13:10|    30720|E        |
+|   625|Prg|ZCL_ABAPGIT_OBJECT_G4BS=======CP        |   625|16.05.2025|08:13:11|    30720|E        |
+|   626|Prg|ZCL_ABAPGIT_OBJECT_GSMP=======CP        |   626|16.05.2025|08:13:12|    23552|E        |
+|   627|Prg|ZCL_ABAPGIT_OBJECT_HTTP=======CP        |   627|16.05.2025|08:13:14|    39936|E        |
+|   628|Typ|UCONHTTPSERVHEAD                        |     0|28.05.2018|11:23:35|     5120|         |
+|   629|Prg|ZCL_ABAPGIT_OBJECT_IAMU=======CP        |   629|16.05.2025|08:13:15|    43008|E        |
+|   630|Prg|ZCL_ABAPGIT_OBJECT_IARP=======CP        |   630|16.05.2025|08:13:16|    39936|E        |
+|   631|Prg|ZCL_ABAPGIT_OBJECT_IASP=======CP        |   631|16.05.2025|08:13:17|    38912|E        |
+|   632|Prg|ZCL_ABAPGIT_OBJECT_IATU=======CP        |   632|16.05.2025|08:13:18|    40960|E        |
+|   633|Prg|ZCL_ABAPGIT_OBJECT_IAXU=======CP        |   633|16.05.2025|08:13:20|    34816|E        |
+|   634|Prg|ZCL_ABAPGIT_OBJECT_IDOC=======CP        |   634|16.05.2025|08:13:21|    48128|E        |
+|   635|Prg|ZCL_ABAPGIT_OBJECT_IEXT=======CP        |   635|16.05.2025|08:13:23|    32768|E        |
+|   636|Prg|ZCL_ABAPGIT_OBJECT_IOBJ=======CP        |   636|16.05.2025|08:13:26|    45056|E        |
+|   637|Prg|%_CRSD                                  |   636|05.03.2023|11:57:02|   234496|E        |
+|   638|Typ|RSD_S_VIOBJ                             |     0|02.03.2022|18:00:18|    38912|         |
+|   639|Prg|ZCL_ABAPGIT_OBJECT_IWMO=======CP        |   639|16.05.2025|08:13:28|    32768|E        |
+|   640|Prg|ZCL_ABAPGIT_OBJECT_IWOM=======CP        |   640|16.05.2025|08:13:29|    29696|E        |
+|   641|Prg|ZCL_ABAPGIT_OBJECT_IWPR=======CP        |   641|16.05.2025|08:13:31|    30720|E        |
+|   642|Prg|ZCL_ABAPGIT_OBJECT_IWSG=======CP        |   642|16.05.2025|08:13:32|    29696|E        |
+|   643|Prg|ZCL_ABAPGIT_OBJECT_IWSV=======CP        |   643|16.05.2025|08:13:33|    32768|E        |
+|   644|Prg|ZCL_ABAPGIT_OBJECT_IWVB=======CP        |   644|16.05.2025|08:13:35|    30720|E        |
+|   645|Prg|ZCL_ABAPGIT_OBJECT_JOBD=======CP        |   645|16.05.2025|08:13:36|    31744|E        |
+|   646|Prg|CL_JR_JOB_DEFINITION==========CP        |   646|16.01.2017|18:49:09|    76800|E        |
+|   647|Prg|ZCL_ABAPGIT_OBJECT_MSAG=======CP        |   647|16.05.2025|08:13:38|   106496|E        |
+|   648|Prg|ZCL_ABAPGIT_OBJECT_NROB=======CP        |   648|16.05.2025|08:13:40|    40960|E        |
+|   649|Prg|ZCL_ABAPGIT_OBJECT_NSPC=======CP        |   649|16.05.2025|08:13:41|    90112|E        |
+|   650|Prg|ZCL_ABAPGIT_OBJECT_OA2P=======CP        |   650|16.05.2025|08:13:42|    35840|E        |
+|   651|Prg|ZCL_ABAPGIT_OBJECT_ODSO=======CP        |   651|16.05.2025|08:13:44|    44032|E        |
+|   652|Typ|BAPI6116                                |     0|04.03.2013|20:20:01|     8192|         |
+|   653|Prg|ZCL_ABAPGIT_OBJECT_OTGR=======CP        |   653|16.05.2025|08:13:45|    49152|E        |
+|   654|Prg|ZCL_ABAPGIT_OBJECT_PARA=======CP        |   654|16.05.2025|08:13:46|    49152|E        |
+|   655|Prg|ZCL_ABAPGIT_OBJECT_PDTS=======CP        |   655|16.05.2025|08:13:47|    68608|E        |
+|   656|Prg|ZCL_ABAPGIT_OBJECT_PDXX_SUPER=CP        |   656|16.05.2025|08:13:49|    40960|E        |
+|   657|Prg|ZCL_ABAPGIT_OBJECT_PERS=======CP        |   657|16.05.2025|08:13:50|    34816|E        |
+|   658|Prg|ZCL_ABAPGIT_OBJECT_PINF=======CP        |   658|16.05.2025|08:13:52|    57344|E        |
+|   659|Prg|ZCL_ABAPGIT_OBJECT_PRAG=======CP        |   659|16.05.2025|08:13:53|    29696|E        |
+|   660|Prg|ZCL_ABAPGIT_OBJECT_RONT=======CP        |   660|16.05.2025|08:13:55|    23552|E        |
+|   661|Prg|ZCL_ABAPGIT_OBJECT_SAJC=======CP        |   661|16.05.2025|08:13:56|    23552|E        |
+|   662|Prg|CL_SAJC_AFF_OBJECT_HANDLER====CP        |   662|19.05.2022|10:47:46|    49152|E        |
+|   663|Prg|ZCL_ABAPGIT_OBJECT_SAJT=======CP        |   663|16.05.2025|08:13:57|    23552|E        |
+|   664|Prg|CL_SAJT_AFF_OBJECT_HANDLER====CP        |   664|19.05.2022|10:47:47|    66560|E        |
+|   665|Prg|ZCL_ABAPGIT_OBJECT_SAMC=======CP        |   665|16.05.2025|08:13:58|    21504|E        |
+|   666|Prg|ZCL_ABAPGIT_OBJECT_SAXX_SUPER=CP        |   666|16.05.2025|08:14:01|    36864|E        |
+|   667|Prg|CL_AMC_APPLICATION_OBJ_DATA===CP        |   667|31.05.2022|12:00:37|    28672|E        |
+|   668|Prg|CL_AMC_APPLICATION_OBJ_PERS===CP        |   668|15.06.2022|14:22:03|   212992|E        |
+|   669|Prg|ZCL_ABAPGIT_OBJECT_SAPC=======CP        |   669|16.05.2025|08:13:59|    21504|E        |
+|   670|Prg|CL_APC_APPLICATION_OBJ_DATA===CP        |   670|31.05.2022|12:00:37|    29696|E        |
+|   671|Prg|CL_APC_APPLICATION_OBJ_PERS===CP        |   671|15.06.2022|14:22:03|   165888|E        |
+|   672|Prg|ZCL_ABAPGIT_OBJECT_SCP1=======CP        |   672|16.05.2025|08:14:02|    50176|E        |
+|   673|Prg|ZCL_ABAPGIT_OBJECT_SCVI=======CP        |   673|16.05.2025|08:14:03|    60416|E        |
+|   674|Prg|ZCL_ABAPGIT_OBJECT_SFBF=======CP        |   674|16.05.2025|08:14:04|    48128|E        |
+|   675|Prg|ZCL_ABAPGIT_OBJECT_SFBS=======CP        |   675|16.05.2025|08:14:06|    45056|E        |
+|   676|Prg|ZCL_ABAPGIT_OBJECT_SFPF=======CP        |   676|16.05.2025|08:14:08|    47104|E        |
+|   677|Prg|ZCL_ABAPGIT_OBJECT_SFPI=======CP        |   677|16.05.2025|08:14:09|    38912|E        |
+|   678|Prg|ZCL_ABAPGIT_OBJECT_SFSW=======CP        |   678|16.05.2025|08:14:11|    44032|E        |
+|   679|Prg|ZCL_ABAPGIT_OBJECT_SHI3=======CP        |   679|16.05.2025|08:14:12|    63488|E        |
+|   680|Prg|ZCL_ABAPGIT_OBJECT_SHI5=======CP        |   680|16.05.2025|08:14:13|    52224|E        |
+|   681|Prg|ZCL_ABAPGIT_OBJECT_SHI8=======CP        |   681|16.05.2025|08:14:14|    31744|E        |
+|   682|Prg|ZCL_ABAPGIT_OBJECT_SHLP=======CP        |   682|16.05.2025|08:14:16|    40960|E        |
+|   683|Prg|ZCL_ABAPGIT_OBJECT_SHMA=======CP        |   683|16.05.2025|08:14:17|    40960|E        |
+|   684|Prg|ZCL_ABAPGIT_OBJECT_SICF=======CP        |   684|16.05.2025|08:14:19|    80896|E        |
+|   685|Prg|ZCL_ABAPGIT_OBJECT_SKTD=======CP        |   685|16.05.2025|08:14:20|    35840|E        |
+|   686|Prg|CL_KTD_OBJECT_DATA============CP        |   686|31.05.2022|12:00:37|    44032|E        |
+|   687|Prg|CL_KTD_OBJECT_PERSIST=========CP        |   687|15.06.2022|14:22:03|   123904|E        |
+|   688|Prg|CL_KTD_ADT_API================CP        |   688|19.05.2022|10:45:05|   121856|E        |
+|   689|Prg|CL_KTD_DB_API=================CP        |   689|19.05.2022|10:43:10|   146432|E        |
+|   690|Prg|ZCL_ABAPGIT_OBJECT_SMBC=======CP        |   690|16.05.2025|08:14:22|    22528|E        |
+|   691|Prg|CL_SMBC_WB_ACCESS=============CP        |   691|31.07.2024|19:29:59|   199680|E        |
+|   692|Prg|CL_SMBC_JSON_SCHEMA_ACCESS====CP        |   692|11.01.2022|15:39:25|    11264|E        |
+|   693|Prg|CL_SMBC_JSON_CONFIG_ACCESS====CP        |   693|03.04.2022|18:54:40|    11264|E        |
+|   694|Prg|ZCL_ABAPGIT_OBJECT_SMIM=======CP        |   694|16.05.2025|08:14:23|    51200|E        |
+|   695|Prg|ZCL_ABAPGIT_OBJECT_SMTG=======CP        |   695|16.05.2025|08:14:24|    37888|E        |
+|   696|Prg|IF_SMTG_EMAIL_TEMPLATE========IP        |   101|29.01.2020|15:51:53|    13312|E        |
+|   697|Typ|SMTG_TMPL_HDR                           |     0|25.03.2019|15:34:03|     5120|         |
+|   698|Typ|SMTG_TMPL_HDR_T                         |     0|13.02.2015|18:15:45|     4096|         |
+|   699|Typ|SMTG_TMPL_CONT                          |     0|13.02.2015|18:15:44|     4096|         |
+|   700|Rty|type000000000000                        |     0|03.06.2025|23:20:00|        0|         |
+|   701|Typ|SMTG_S_SYS_ADMIN_DATA                   |     0|13.02.2015|18:08:19|     3072|         |
+|   702|Prg|ZCL_ABAPGIT_OBJECT_SOBJ=======CP        |   702|16.05.2025|08:14:25|    38912|E        |
+|   703|Prg|ZCL_ABAPGIT_OBJECT_SOD1=======CP        |   703|16.05.2025|08:14:27|    43008|E        |
+|   704|Prg|CL_APS_ODA_WBI_SOD1_DATA_MODELCP        |   704|09.03.2021|15:01:28|    32768|E        |
+|   705|Prg|ZCL_ABAPGIT_OBJECT_SOD2=======CP        |   705|16.05.2025|08:14:28|    43008|E        |
+|   706|Prg|CL_APS_ODA_WBI_SOD2_DATA_MODELCP        |   706|19.05.2022|10:41:31|    44032|E        |
+|   707|Prg|ZCL_ABAPGIT_OBJECT_SOTS=======CP        |   707|16.05.2025|08:14:29|    47104|E        |
+|   708|Prg|ZCL_ABAPGIT_OBJECT_SPLO=======CP        |   708|16.05.2025|08:14:31|    62464|E        |
+|   709|Prg|ZCL_ABAPGIT_OBJECT_SPPF=======CP        |   709|16.05.2025|08:14:32|    26624|E        |
+|   710|Prg|ZCL_ABAPGIT_OBJECT_SPRX=======CP        |   710|16.05.2025|08:14:33|    65536|E        |
+|   711|Prg|ZCL_ABAPGIT_OBJECT_SQSC=======CP        |   711|16.05.2025|08:14:35|    48128|E        |
+|   712|Prg|CL_DDIC_WB_DBPROC_PROXY=======CP        |   712|25.11.2021|18:22:27|    35840|E        |
+|   713|Prg|IF_DDIC_WB_DBPROC_PROXY=======IP        |   711|13.02.2015|19:46:12|     5120|E        |
+|   714|Prg|ZCL_ABAPGIT_OBJECT_SRFC=======CP        |   714|16.05.2025|08:14:36|    31744|E        |
+|   715|Prg|CL_UCONRFC_OBJECT_PERSIST=====CP        |   715|23.03.2022|14:01:19|    45056|E        |
+|   716|Prg|ZCL_ABAPGIT_OBJECT_SRVB=======CP        |   716|16.05.2025|08:14:37|    40960|E        |
+|   717|Prg|CL_SRVB_OBJECT_DATA===========CP        |   717|31.08.2022|15:44:23|    44032|E        |
+|   718|Prg|CL_SRVB_OBJECT_PERSIST========CP        |   718|31.08.2022|15:44:23|   131072|E        |
+|   719|Prg|CL_SRVB_API_FACTORY===========CP        |   719|19.05.2022|10:49:58|    11264|E        |
+|   720|Prg|CL_SRVB_API===================CP        |   720|19.05.2022|10:49:58|   197632|E        |
+|   721|Prg|CL_SRVB_UTIL==================CP        |   721|31.08.2022|15:44:23|    61440|E        |
+|   722|Prg|CL_SRVB_SVRS_CONFIG===========CP        |   722|31.07.2024|19:29:10|    31744|E        |
+|   723|Prg|CL_BLUE_SVRS_CONFIG===========CP        |   723|31.07.2024|19:29:10|    54272|E        |
+|   724|Prg|CL_SVRS_CONFIG_TLOGO==========CP        |   724|31.07.2024|19:31:46|    68608|E        |
+|   725|Prg|ZCL_ABAPGIT_OBJECT_SRVD=======CP        |   725|16.05.2025|08:14:39|    41984|E        |
+|   726|Prg|CL_SRVD_WB_OBJECT_DATA========CP        |   726|31.05.2022|12:00:37|    41984|E        |
+|   727|Prg|ZCL_ABAPGIT_OBJECT_SSFO=======CP        |   727|16.05.2025|08:14:40|    56320|E        |
+|   728|Prg|ZCL_ABAPGIT_OBJECT_SSST=======CP        |   728|16.05.2025|08:14:42|    44032|E        |
+|   729|Prg|ZCL_ABAPGIT_OBJECT_STVI=======CP        |   729|16.05.2025|08:14:43|    49152|E        |
+|   730|Prg|ZCL_ABAPGIT_OBJECT_STYL=======CP        |   730|16.05.2025|08:14:44|    33792|E        |
+|   731|Prg|ZCL_ABAPGIT_OBJECT_SUCU=======CP        |   731|16.05.2025|08:14:46|    26624|E        |
+|   732|Prg|ZCL_ABAPGIT_OBJECT_SUSC=======CP        |   732|16.05.2025|08:14:47|    48128|E        |
+|   733|Prg|ZCL_ABAPGIT_OBJECT_SUSH=======CP        |   733|16.05.2025|08:14:49|    43008|E        |
+|   734|Prg|IF_SU22_ADT_OBJECT============IP        |   733|31.07.2024|19:28:54|    29696|E        |
+|   735|Prg|ZCL_ABAPGIT_OBJECT_SUSO=======CP        |   735|16.05.2025|08:14:51|    93184|E        |
+|   736|Prg|ZCL_ABAPGIT_OBJECT_SXCI=======CP        |   736|16.05.2025|08:14:53|    41984|E        |
+|   737|Prg|ZCL_ABAPGIT_OBJECT_SXSD=======CP        |   737|16.05.2025|08:14:55|    39936|E        |
+|   738|Prg|ZCL_ABAPGIT_OBJECT_TOBJ=======CP        |   738|16.05.2025|08:15:01|    76800|E        |
+|   739|Prg|ZCL_ABAPGIT_OBJECT_TRAN=======CP        |   739|16.05.2025|08:15:02|    97280|E        |
+|   740|Prg|ZCL_ABAPGIT_OBJECT_TTYP=======CP        |   740|16.05.2025|08:15:04|    38912|E        |
+|   741|Prg|ZCL_ABAPGIT_OBJECT_TYPE=======CP        |   741|16.05.2025|08:15:05|    48128|E        |
+|   742|Prg|ZCL_ABAPGIT_OBJECT_UCSA=======CP        |   742|16.05.2025|08:15:07|    32768|E        |
+|   743|Prg|ZCL_ABAPGIT_OBJECT_UDMO=======CP        |   743|16.05.2025|08:15:09|    87040|E        |
+|   744|Prg|ZCL_ABAPGIT_OBJECT_UENO=======CP        |   744|16.05.2025|08:15:11|    66560|E        |
+|   745|Prg|ZCL_ABAPGIT_OBJECT_UIAD=======CP        |   745|16.05.2025|08:15:12|    22528|E        |
+|   746|Prg|CX_SY_DYN_CALL_ILLEGAL_CLASS==CP        |   746|25.11.2020|16:56:54|    11264|E        |
+|   747|Prg|CX_SY_DYN_CALL_ERROR==========CP        |   747|25.11.2020|16:56:54|    11264|E        |
+|   748|Prg|ZCL_ABAPGIT_OBJECT_UIPG=======CP        |   748|16.05.2025|08:15:13|    23552|E        |
+|   749|Prg|ZCL_ABAPGIT_OBJECT_UIST=======CP        |   749|16.05.2025|08:15:14|    22528|E        |
+|   750|Prg|ZCL_ABAPGIT_OBJECT_VCLS=======CP        |   750|16.05.2025|08:15:16|    50176|E        |
+|   751|Prg|ZCL_ABAPGIT_OBJECT_W3HT=======CP        |   751|16.05.2025|08:15:19|    20480|E        |
+|   752|Prg|ZCL_ABAPGIT_OBJECT_W3XX_SUPER=CP        |   752|16.05.2025|08:15:22|    56320|E        |
+|   753|Prg|ZCL_ABAPGIT_OBJECT_W3MI=======CP        |   753|16.05.2025|08:15:20|    20480|E        |
+|   754|Prg|ZCL_ABAPGIT_OBJECT_WAPA=======CP        |   754|16.05.2025|08:15:23|    62464|E        |
+|   755|Prg|ZCL_ABAPGIT_OBJECT_WDCA=======CP        |   755|16.05.2025|08:15:25|    66560|E        |
+|   756|Prg|ZCL_ABAPGIT_OBJECT_WDCC=======CP        |   756|16.05.2025|08:15:27|    75776|E        |
+|   757|Typ|WDY_CONFIG_DATA                         |     0|08.02.2019|12:34:35|     5120|         |
+|   758|Prg|ZCL_ABAPGIT_OBJECT_WDYA=======CP        |   758|16.05.2025|08:15:28|    35840|E        |
+|   759|Prg|ZCL_ABAPGIT_OBJECT_WDYN=======CP        |   759|16.05.2025|08:15:29|   821248|E        |
+|   760|Prg|ZCL_ABAPGIT_OBJECT_WEBI=======CP        |   760|16.05.2025|08:15:31|    88064|E        |
+|   761|Prg|ZCL_ABAPGIT_OBJECT_XINX=======CP        |   761|16.05.2025|08:15:32|    43008|E        |
+|   762|Prg|SAPLSINT                                |   762|19.05.2022|10:49:48|   254976|E        |
+|   763|Prg|IF_DD_CONSTANTS===============IP        |   762|19.05.2022|10:49:48|    10240|E        |
+|   764|Prg|ZCL_ABAPGIT_OBJECT_XSLT=======CP        |   764|16.05.2025|08:15:33|    35840|E        |
+|   765|Prg|ZCL_ABAPGIT_FILENAME_LOGIC====CP        |   765|16.05.2025|08:09:01|    44032|E        |
+|   766|Prg|ZIF_ABAPGIT_DOT_ABAPGIT=======IP        |   430|16.05.2025|08:06:41|    11264|E        |
+|   767|Prg|SAPLLRFC                                |   767|09.03.2021|15:13:30|    30720|E        |
+|   768|Prg|CL_PRFC_KERNEL================CP        |   768|28.02.2019|15:47:03|     7168|E        |
+|   769|Prg|SAPMSSY7                                |   420|13.02.2015|19:49:42|     9216|E        |
+|   770|Prg|ZCL_ABAPGIT_REPO_CHECKSUMS====CP        |   770|16.05.2025|08:16:15|    99328|E        |
+|   771|Prg|ZCL_ABAPGIT_SAP_NAMESPACE=====CP        |   771|16.05.2025|08:16:30|    22528|E        |
+|   772|Prg|ZCL_ABAPGIT_CTS_API===========CP        |   772|16.05.2025|08:08:18|    78848|E        |
+|   773|Typ|TLOCK                                   |     0|18.06.1999|11:24:21|     4096|         |
+|   774|Prg|SAPLSTRI                                |   774|31.07.2024|19:31:01|   671744|E        |
+|   775|Typ|TDEVC                                   |     0|23.04.2019|13:10:59|    10240|         |
+|   776|Typ|TDEVCT                                  |     0|22.10.2012|15:47:46|     3072|         |
+|   777|Typ|TLOCK_INT                               |     0|16.12.1996|19:32:35|     3072|         |
+|   778|Typ|DD02L                                   |     0|25.11.2020|14:37:30|    11264|         |
+|   779|Typ|TRERR                                   |     0|22.10.2012|15:47:51|     4096|         |
+|   780|Typ|TDKZ                                    |     0|09.02.2016|17:46:13|     3072|         |
+|   781|Prg|ZCL_ABAPGIT_PATH==============CP        |   781|16.05.2025|08:15:42|    19456|E        |
+|   782|Prg|ZCL_ABAPGIT_ENV_FACTORY=======CP        |   782|16.05.2025|08:08:51|     8192|E        |
+|   783|Prg|ZCL_ABAPGIT_USER_RECORD=======CP        |   783|16.05.2025|08:17:13|    33792|E        |
+|   784|Typ|ADDR3_VAL                               |     0|19.05.2017|20:01:37|    28672|         |
+|   785|Prg|SAPLSUSM                                |   785|30.06.2022|07:18:30|   207872|E        |
+|   786|Typ|USR21                                   |     0|15.02.2018|11:01:13|     5120|         |
+|   787|Typ|USR03                                   |     0|09.09.2011|20:55:49|     7168|         |
+|   788|Prg|IF_IDENTITY===================IP        |   785|23.03.2022|14:00:38|    29696|E        |
+|   789|Prg|CX_SY_REF_IS_INITIAL==========CP        |   789|25.11.2020|16:56:54|    10240|E        |
+|   790|Prg|CX_SY_NO_HANDLER==============CP        |   790|25.11.2020|16:56:54|    10240|E        |
+|   791|Prg|IF_CX_DEV_OBJECT_INFO=========IP        |     0|11.11.2019|18:16:48|     5120|E        |
+|   792|Typ|RSVUVINT                                |     0|15.12.1995|16:07:46|     3072|         |
+|   793|Prg|%_CRSDS                                 |     0|13.02.2015|19:49:42|    11264|E        |
+|   794|Typ|RSVARKEY                                |     0|19.05.2020|09:01:49|     3072|         |
+|   795|Typ|SCREEN                                  |     0|03.06.2004|11:20:48|     5120|         |
+|   796|Typ|RSPARINT                                |     0|10.03.1995|17:53:00|     2048|         |
+|   797|Typ|PRI_PARAMS                              |     0|04.03.2013|20:20:41|     6144|         |
+|   798|Typ|ARC_PARAMS                              |     0|16.07.2014|19:37:18|     6144|         |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|Directory of Application Tables                                                                   |
+----------------------------------------------------------------------------------------------------
+|Name                                     Date       Time       Lngth                              |
+|    Val.                                                                                          |
+----------------------------------------------------------------------------------------------------
+|Program  20250603231934                                                                           |
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+|Program  ZABAPGIT                                                                                 |
+----------------------------------------------------------------------------------------------------
+|SYST                                     16.07.2014 19:38:30   00004612                           |
+|    \0\0\0\0\x0001\0\x0001\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0(\0                                       |
+|SY                                         .  .       :  :     00004612                           |
+|    \0\0\0\0\x0001\0\x0001\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0(\0                                       |
+|SSCRFIELDS                               04.03.2013 20:21:13   00001708                           |
+|    CBAC                                                                                          |
+|SSCRTEXTS                             .  .       :  :     00000742                                |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|Program  RSDBRUNT                                                                                 |
+----------------------------------------------------------------------------------------------------
+|RSVUVINT                             .  .       :  :     00000094                                 |
+|                                                   |                                              |
+|VARID                                      .  .       :  :     00000252                           |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSEUQ                                                                                 |
+----------------------------------------------------------------------------------------------------
+|E071                                       .  .       :  :     00000360                           |
+|                        000000LIMUDYNPZABAPGIT                                                    |
+|TADIR                                      .  .       :  :     00000464                           |
+|    R3TRPROGZABAPGIT                                                                              |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSTRD                                                                                 |
+----------------------------------------------------------------------------------------------------
+|DD02L                                      .  .       :  :     00000464                           |
+|                     0000                                                                         |
+|TDKZ                                       .  .       :  :     00000088                           |
+|                                                |                                                 |
+|TFDIR                                      .  .       :  :     00000290                           |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|Program  SAPSHDTV                                                                                 |
+----------------------------------------------------------------------------------------------------
+|SHDSTU                                     .  .       :  :     00000106                           |
+|                                                         |                                        |
+|SHDSTCIU                             .  .       :  :     00000100                                 |
+|                                                      |                                           |
+----------------------------------------------------------------------------------------------------
+|Program  SAPFS_SECLOG                                                                             |
+----------------------------------------------------------------------------------------------------
+|INDX                             .  .       :  :     00003104                                     |
+|    001%L%_SeclogExcludedCaller\0\0\0  00000000                                                   |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLOLEA                                                                                 |
+----------------------------------------------------------------------------------------------------
+|TOLE                             .  .       :  :     00000394                                     |
+|    com.sap.gui.beans.GuiDataProvide      com.sap.gui.beans.Gu                                    |
+----------------------------------------------------------------------------------------------------
+|Program  CONTEXT_X_TR_SYS_PARAMS                                                                  |
+----------------------------------------------------------------------------------------------------
+|CONTEXTB                             .  .       :  :     00002992                                 |
+|    001EBTR_SYS_PARAMS       000007000100000000000000\0\0\0\0                                     |
+|TCONT                                      .  .       :  :     00000068                           |
+|    TR_SYS_PARAMS       20240731194232|                                                           |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLICON                                                                                 |
+----------------------------------------------------------------------------------------------------
+|ICONT                                      .  .       :  :     00000130                           |
+|    E@1C@Question                                                                                 |
+----------------------------------------------------------------------------------------------------
+|Program  CL_GUI_PROPS_CONSUMER=========CP                                                         |
+----------------------------------------------------------------------------------------------------
+|EUDB                                       .  .       :  :     00004068                           |
+|    %C6EB38C17E92A1FE0909A23D4C8639E17         \0\0\0                                             |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSUNI                                                                                 |
+----------------------------------------------------------------------------------------------------
+|TFDIR                                      .  .       :  :     00000290                           |
+|    Z_ABAPGIT_SERIALIZE_PARALLEL  SAPLZABAPGIT_PARALLEL                                           |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSHTM                                                                                 |
+----------------------------------------------------------------------------------------------------
+|WWWDATA                                    .  .       :  :     00003192                           |
+|    MIZABAPGIT_CSS_THEME_DEFAULT              \x0001\0  DEVELO                                    |
+|WWWPARAMS                                  .  .       :  :     00000684                           |
+|    MIZABAPGIT_CSS_THEME_DEFAULT              filesize                                            |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLLANG                                                                                 |
+----------------------------------------------------------------------------------------------------
+|T002                                       .  .       :  :     00000010                           |
+|    ES1EN|                                                                                        |
+----------------------------------------------------------------------------------------------------
+|Program  SAPFSDS1                                                                                 |
+----------------------------------------------------------------------------------------------------
+|TDCLD                                      .  .       :  :     00000098                           |
+|    RE  DOKU40R XX XXLIMUDOCUX (XR3TRPROGX        X|                                              |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSDOD                                                                                 |
+----------------------------------------------------------------------------------------------------
+|DOKIL                                      .  .       :  :     00000152                           |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSHTTP                                                                                |
+----------------------------------------------------------------------------------------------------
+|PPROXY_G                                   .  .       :  :     00000214                           |
+|                                                                                                  |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSEUF                                                                                 |
+----------------------------------------------------------------------------------------------------
+|TLIBG                                      .  .       :  :     00000076                           |
+|    ZAPIDUMMYFOOBAR                       |                                                       |
+----------------------------------------------------------------------------------------------------
+|Program  SAPLSUSM                                                                                 |
+----------------------------------------------------------------------------------------------------
+|USR03                                      .  .       :  :     00000876                           |
+|                                                                                                  |
+|USR21                                      .  .       :  :     00000404                           |
+|    001DEVELOPER   00000111060000011105                                                           |
+----------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------
+|ABAP Control Blocks (CONT)                                                                        |
+----------------------------------------------------------------------------------------------------
+|Index|Name|Fl|PAR0|PAR1|PAR2|PAR3|PAR4|PAR5|PAR6|Source Code                          |Line       |
+----------------------------------------------------------------------------------------------------
+| 1044|BREL|04|0000|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     299|
+| 1045|WHEN|00|0002|0066|0082|    |    |    |    |ZABAPGIT_FORMS                          |     300|
+| 1047|BRAN|02|0005|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     300|
+| 1048|WHEN|00|0002|0066|0083|    |    |    |    |ZABAPGIT_FORMS                          |     300|
+| 1050|BRAN|02|0002|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     300|
+| 1051|BRAX|00|002E|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     300|
+| 1052|BREL|80|0000|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     300|
+| 1053|STCK|05|0000|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1054|STCK|07|C001|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1055|clcm|10|0001|0007|0004|0000|0000|0000|0000|ZABAPGIT_FORMS                          |     301|
+| 1059|PAR1|E5|C001|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1060|PAR2|00|0000|0001|0000|    |    |    |    |ZABAPGIT_FORMS                          |     301|
+|>>>>>|clom|10|0003|C001|000A|0000|0000|0000|0000|ZABAPGIT_FORMS                          |     301|
+| 1066|PAR1|00|0000|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1067|PAR1|01|0033|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1068|PAR1|E7|C002|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1069|PAR2|00|0000|0001|0000|    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1071|STCK|06|0000|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1072|cmpr|03|0386|C002|0058|    |    |    |    |ZABAPGIT_FORMS                          |     301|
+| 1074|BRAF|02|0013|    |    |    |    |    |    |ZABAPGIT_FORMS                          |     301|
+----------------------------------------------------------------------------------------------------

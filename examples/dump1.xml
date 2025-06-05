@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dump title="Runtime Error: OBJECTS_OBJREF_NOT_ASSIGNED 03.06.2025 23:21:06 DEVELOPER (John Doe)" error="OBJECTS_OBJREF_NOT_ASSIGNED" author="DEVELOPER" exception="CX_SY_REF_IS_INITIAL" terminatedProgram="ZABAPGIT" serverInstance="vhcala4hci_A4H_00" datetime="2025-06-03T23:21:06Z" systemDate="03.06.2025" systemTime="23:21:06" xmlns:dump="http://www.sap.com/adt/categories/dump">
+	<links>
+		<link relation="contents" uri="/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206/formatted" contentType="text/plain" />
+		<link relation="http://www.sap.com/adt/relations/runtime/dump/unformatted" uri="/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206/unformatted" contentType="text/plain" />
+		<link relation="self" uri="/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206" contentType="application/vnd.sap.adt.runtime.dump.v1+xml" />
+		<link relation="alternate" uri="/sap/bc/adt/vit/runtime/dumps/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206" contentType="application/vnd.sap.adt.sapgui" />
+		<link relation="http://www.sap.com/adt/relations/runtime/dump/summary" uri="/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206/summary" contentType="text/html" />
+		<link relation="http://www.sap.com/adt/relations/runtime/dump/termination" uri="adt://A4H/sap/bc/adt/programs/includes/zabapgit_forms/source/main?context=%2fsap%2fbc%2fadt%2fprograms%2fprograms%2fzabapgit#start=301" contentType="" />
+		<link relation="http://www.sap.com/adt/relations/runtime/dump/http" uri="https://MUABAP.YDNS.EU:443/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206" contentType="text/html" />
+	</links>
+	<chapters>
+		<chapter name="kap5" title="System environment" category="System Environment" line="93" chapterOrder="6" categoryOrder="1" />
+		<chapter name="kap6" title="User and Transaction" category="System Environment" line="142" chapterOrder="7" categoryOrder="1" />
+		<chapter name="kap1" title="What happened?" category="User View" line="16" chapterOrder="2" categoryOrder="2" />
+		<chapter name="kap2" title="What can you do?" category="User View" line="24" chapterOrder="3" categoryOrder="2" />
+		<chapter name="kap0" title="Short Text" category="ABAP Developer View" line="11" chapterOrder="1" categoryOrder="3" />
+		<chapter name="kap3" title="Error analysis" category="ABAP Developer View" line="40" chapterOrder="4" categoryOrder="3" />
+		<chapter name="kap4" title="How to correct the error" category="ABAP Developer View" line="56" chapterOrder="5" categoryOrder="3" />
+		<chapter name="kap28" title="Chain of Exception Objects" category="ABAP Developer View" line="161" chapterOrder="8" categoryOrder="3" />
+		<chapter name="kap7" title="Information on where terminated" category="ABAP Developer View" line="179" chapterOrder="9" categoryOrder="3" />
+		<chapter name="kap8" title="Source Code Extract" category="ABAP Developer View" line="195" chapterOrder="10" categoryOrder="3" />
+		<chapter name="kap9" title="Contents of system fields" category="ABAP Developer View" line="253" chapterOrder="11" categoryOrder="3" />
+		<chapter name="kap11" title="Active Calls/Events" category="ABAP Developer View" line="284" chapterOrder="12" categoryOrder="3" />
+		<chapter name="kap10" title="Chosen Variables" category="ABAP Developer View" line="306" chapterOrder="13" categoryOrder="3" />
+		<chapter name="kap27" title="Lock Shared Objects" category="ABAP Developer View" line="801" chapterOrder="14" categoryOrder="3" />
+		<chapter name="kap14" title="List of ABAP programs affected" category="ABAP Developer View" line="853" chapterOrder="17" categoryOrder="3" />
+		<chapter name="kap12" title="Internal notes" category="BASIS Developer View" line="816" chapterOrder="15" categoryOrder="4" />
+		<chapter name="kap13" title="Active Calls in SAP Kernel" category="BASIS Developer View" line="824" chapterOrder="16" categoryOrder="4" />
+		<chapter name="kap16" title="Directory of Application Tables" category="BASIS Developer View" line="1659" chapterOrder="18" categoryOrder="4" />
+		<chapter name="kap19" title="ABAP Control Blocks (CONT)" category="BASIS Developer View" line="1781" chapterOrder="19" categoryOrder="4" />
+	</chapters>
+</dump>

@@ -1,0 +1,28 @@
+###
+# @name listdumps
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dumps
+Authorization: Basic {{$dotenv ABAP_ADT_USER}}:{{$dotenv ABAP_ADT_PASSWORD}}
+Accept: application/atom+xml;type=feed
+
+###
+# @name getDump
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206
+Authorization: Basic {{$dotenv ABAP_ADT_USER}}:{{$dotenv ABAP_ADT_PASSWORD}}
+Accept: text/html
+
+###
+# @name getDump_xml
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206
+Authorization: Basic {{$dotenv ABAP_ADT_USER}}:{{$dotenv ABAP_ADT_PASSWORD}}
+Accept: application/vnd.sap.adt.runtime.dump.v1+xml
+
+###
+# @name getDump_unformatted
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206/unformatted
+Authorization: Basic {{$dotenv ABAP_ADT_USER}}:{{$dotenv ABAP_ADT_PASSWORD}}
+Accept: text/plain
+###
+# @name getDump_formatted
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206/formatted
+Authorization: Basic {{$dotenv ABAP_ADT_USER}}:{{$dotenv ABAP_ADT_PASSWORD}}
+Accept: text/plain

@@ -1,48 +1,48 @@
-import { Server } from "@modelcontextprotocol/sdk/server/index.js"
-import {
-  ListResourcesRequestSchema,
-  ReadResourceRequestSchema
-} from "@modelcontextprotocol/sdk/types.js"
-import { createDumpService } from "./dump.js"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
+import { createDumpService, SapDump } from "./dump.js"
+import { z } from "zod"
+import { CallToolResult } from "@modelcontextprotocol/sdk/types.js"
 export const createServer = async () => {
   const service = await createDumpService()
-  const server = new Server(
-    {
-      name: "sapdump-mcp-server",
-      version: "1.0.0"
-    },
-    {
-      capabilities: {
-        resources: {},
-        tools: {}
+  const server = new McpServer({
+    name: "sapdump-mcp-server",
+    version: "1.0.0"
+  })
+
+  server.tool(
+    "list_sap_dumps",
+    "list sap short dumps generated when a program crashes",
+    async () => {
+      const dumps = await service.listDumps(true)
+      return {
+        content: dumps.map(
+          t =>
+            ({
+              type: "text",
+              text: `ID:"${t.id}"\n:Error:${t.error}\nProgram:${t.program}`
+            } as const)
+        )
       }
     }
   )
 
-  server.setRequestHandler(ListResourcesRequestSchema, async () => {
-    return {
-      resources: [
-        {
-          uri: "file://dumps",
-          name: "Dumps",
-          mimeType: "text/plain"
-        }
-      ]
-    }
-  })
-
-  // Read resource contents
-  server.setRequestHandler(ReadResourceRequestSchema, async request => {
-    const uri = request.params.uri
-    if (uri === "file://dumps") {
-      const dumps = await service.listDumps()
-      const text = JSON.stringify(dumps)
+  server.tool(
+    "read_sap_dump",
+    "read the text of a sap short dump",
+    { id: z.string().describe("ID of the dump to read") },
+    async ({ id }) => {
+      const dump = await service.getDump(id)
       return {
-        contents: [{ uri, mimeType: "text/plain", text }]
+        content: [
+          {
+            type: "resource",
+            resource: { mimeType: "text/html", uri: dump.id, text: dump.text }
+          }
+        ]
       }
     }
-    throw new Error("Resource not found")
-  })
+  )
+
   return server
 }

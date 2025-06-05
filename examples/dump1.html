@@ -1,0 +1,255 @@
+<p><a class="showInRuntimeViewerLink"
+        href="adt://A4H/sap/bc/adt/runtime/dump/20250603232106vhcala4hci_A4H_00%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20DEVELOPER%20%20%20001%20%20%20%20%20%20%20%206">Show
+        in Runtime Error Viewer</a></p>
+<h4 id="OVERVIEW">Contents</h4><a href="#HEADERX">Header Information</a><br><a href="#WHATHAPPENED">What
+    happened?</a><br><a href="#ERROR">Error analysis</a><br><a href="#TERMINATION">Information on where
+    terminated</a><br><a href="#SOURCE">Source Code Extract</a><br><a href="#STACK">Active Calls/Events</a>
+<h4 id="HEADERX">Header Information</h4>
+<table cellspacing="3">
+    <tr>
+        <td><b>Short Text&nbsp;</b></td>
+        <td nowrap> Access using a 'ZERO' object reference is not possible. </td>
+    </tr>
+    <tr>
+        <td><b>Runtime Error&nbsp;</b></td>
+        <td nowrap> OBJECTS_OBJREF_NOT_ASSIGNED </td>
+    </tr>
+    <tr>
+        <td><b>Exception&nbsp;</b></td>
+        <td nowrap> CX_SY_REF_IS_INITIAL </td>
+    </tr>
+    <tr>
+        <td><b>Program&nbsp;</b></td>
+        <td nowrap> ZABAPGIT </td>
+    </tr>
+    <tr>
+        <td><b>Date/Time&nbsp;</b></td>
+        <td nowrap> 03.06.2025 23:21:06 (System) </td>
+    </tr>
+    <tr>
+        <td><b>User&nbsp;</b></td>
+        <td nowrap> DEVELOPER (John Doe) </td>
+    </tr>
+    <tr>
+        <td><b>Client&nbsp;</b></td>
+        <td nowrap> 001 </td>
+    </tr>
+    <tr>
+        <td><b>Host&nbsp;</b></td>
+        <td nowrap> vhcala4hci_A4H_00 </td>
+    </tr>
+</table>
+<h4 id="WHATHAPPENED">What happened?</h4>Error in the ABAP application program.<br><br>The current ABAP program
+"ZABAPGIT" had to be terminated because it found a<br>statement that could not be executed.<h4 id="ERROR">Error analysis
+</h4>An exception has occurred in class "CX_SY_REF_IS_INITIAL". This exception was not caught<br>in procedure "EXIT"
+"(FORM)" or propagated by a RAISING clause.<br>Since the caller of the procedure could not have anticipated
+this<br>exception, the current program was terminated.<br>The reason for the exception occurring was:<br>The reason for
+the exception is:<br>You are trying to access a component with a 'ZERO' object reference<br>(points to 'nothing').
+Variable: "%_##TVREG_001".<br>An object reference must point to an object (an instance of a class)<br>before it can be
+used to access a component. The reference has either<br>never been set, or it was set to 'ZERO' with a CLEAR statement.
+<h4 id="TERMINATION">Information on where terminated</h4>The termination occurred in ABAP program or include "ZABAPGIT",
+in "EXIT". The<br>main program was "ZABAPGIT".<br><br>In the source code, the termination point is in line 301 of
+include "ZABAPGIT_FORMS".<br>include "ZABAPGIT_FORMS".<br>The termination is due to exception "CX_SY_REF_IS_INITIAL"
+occurring in procedure "EXIT" "(FORM)",<br>but not being handled locally there or being declared in the
+RAISING<br>clause.<br>The procedure is in program "ZABAPGIT". Its source code begins in line 287 of<br>include
+"ZABAPGIT_FORMS".<h4 id="SOURCE">Source Code Extract</h4>
+<style>
+    .showInRuntimeViewerLink {
+        font-size: 140%;
+        color: grey;
+    }
+
+    .showInRuntimeViewerLink:link {
+        font-size: 140%;
+        color: grey;
+    }
+
+    .keyword {
+        color: blue
+    }
+
+    .comment {
+        color: grey
+    }
+
+    .literal {
+        color: green;
+    }
+
+    .number {
+        color: #3399ff;
+    }
+
+    .sourceline {
+        padding-left: 3px;
+        font-family: Consolas, "Liberation Mono", Courier, monospace;
+    }
+
+    .linenumber {
+        display: block;
+        color: grey;
+        border-right: 1px solid;
+        padding-left: 5px;
+        padding-right: 3px;
+        text-align: right;
+    }
+
+    .indicator {
+        color: blue;
+        font-weight: bold;
+    }
+
+    span {
+        white-space: pre;
+        font-family: Consolas, "Liberation Mono", Courier, monospace;
+    }
+
+    #sourcetable {}
+
+    #sourcetablecolumn {
+        padding: 0px;
+    }
+
+    .highlight {
+        padding-left: 3px;
+        background-color: gold;
+    }
+</style>
+<table id="sourcetable" cellspacing="0">
+    <tr>
+        <td id="sourcetablecolumn" style="vertical-align:top;"><span class="linenumber">289</span><span
+                class="linenumber">290</span><span class="linenumber">291</span><span class="linenumber">292</span><span
+                class="linenumber">293</span><span class="linenumber">294</span><span class="linenumber">295</span><span
+                class="linenumber">296</span><span class="linenumber">297</span><span class="linenumber">298</span><span
+                class="linenumber">299</span><span class="linenumber">300</span><span class="linenumber"><a
+                    title="Show where terminated"
+                    href="adt://A4H/sap/bc/adt/programs/includes/zabapgit_forms/source/main?context=%2fsap%2fbc%2fadt%2fprograms%2fprograms%2fzabapgit#start=301"><span
+                        class="indicator">>>></span></a></span><span class="linenumber">302</span><span
+                class="linenumber">303</span><span class="linenumber">304</span><span class="linenumber">305</span><span
+                class="linenumber">306</span><span class="linenumber">307</span><span class="linenumber">308</span><span
+                class="linenumber">309</span><span class="linenumber">310</span><span class="linenumber">311</span></td>
+        <td id="sourcetablecolumn">
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="keyword">DATA</span> lx_error <span
+                        class="keyword">TYPE REF TO</span> zcx_abapgit_exception<span class="keyword">.</span></span>
+            </div>
+            <div class="sourceline"><span><span>&nbsp;</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="comment">" The exit logic should only be applied for
+                        our 'main' selection screen 1001.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="comment">" All other selection-screens are called as
+                        popups and shouldn't influence</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="comment">" the gui navigation as it would lead to
+                        unpredictable behaviour like dumps.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="keyword">IF</span> sy<span
+                        class="keyword">-</span>dynnr <span class="keyword">&lt;&gt;</span> <span
+                        class="number">1001</span><span class="keyword">.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">RETURN.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="keyword">ENDIF.</span></span></div>
+            <div class="sourceline"><span><span>&nbsp;</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="keyword">TRY.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">CASE</span> sy<span
+                        class="keyword">-</span>ucomm<span class="keyword">.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">WHEN</span> <span class="literal">'CBAC'</span> <span class="keyword">OR</span>
+                    <span class="literal">'CCAN'</span><span class="keyword">.</span> <span class="comment">"Back &amp;
+                        Escape</span></span></div>
+            <div class="sourceline highlight"><a title="Show where terminated"
+                    href="adt://A4H/sap/bc/adt/programs/includes/zabapgit_forms/source/main?context=%2fsap%2fbc%2fadt%2fprograms%2fprograms%2fzabapgit#start=301"
+                    style="text-decoration:none;"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="keyword">IF</span> zcl_abapgit_ui_factory<span
+                            class="keyword">=&gt;</span>get_gui<span class="keyword">( )-&gt;</span>back<span
+                            class="keyword">(</span> iv_graceful <span class="keyword">=</span> abap_true <span
+                            class="keyword">) =</span> abap_true<span class="keyword">.</span> <span class="comment">"
+                            end of stack</span></span></a></div>
+            <div class="sourceline">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zcl_abapgit_ui_factory<span
+                        class="keyword">=&gt;</span>get_gui<span class="keyword">( )-&gt;</span>free<span
+                        class="keyword">( ).</span> <span class="comment">" Graceful shutdown</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">ELSE.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">LEAVE TO SCREEN</span> 1001<span class="keyword">.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">ENDIF.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">ENDCASE.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">CATCH</span>
+                    zcx_abapgit_exception <span class="keyword">INTO</span> lx_error<span
+                        class="keyword">.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">MESSAGE</span>
+                    lx_error <span class="keyword">TYPE</span> <span class="literal">'S'</span> <span
+                        class="keyword">DISPLAY LIKE</span> <span class="literal">'E'</span><span
+                        class="keyword">.</span></span></div>
+            <div class="sourceline"><span>&nbsp;&nbsp;<span class="keyword">ENDTRY.</span></span></div>
+            <div class="sourceline"><span><span>&nbsp;</span></span></div>
+            <div class="sourceline"><span><span class="keyword">ENDFORM.</span></span></div>
+        </td>
+    </tr>
+</table>
+<h4 id="STACK">Active Calls/Events</h4>
+<style>
+    code {
+        font-family: Consolas, "Liberation Mono", Courier, monospace;
+    }
+</style>
+<table cellspacing="5">
+    <tr>
+        <th align="left">No.</th>
+        <th align="left">Event</th>
+        <th align="left">Program</th>
+        <th align="left">Include</th>
+        <th align="left">Line</th>
+    </tr>
+    <tr>
+        <td><code><a href="adt://A4H/sap/bc/adt/programs/includes/zabapgit_forms/source/main?context=%2fsap%2fbc%2fadt%2fprograms%2fprograms%2fzabapgit#start=301">7</a></code>
+        </td>
+        <td><code>EXIT</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code>ZABAPGIT_FORMS</code></td>
+        <td><code>301</code></td>
+    </tr>
+    <tr>
+        <td><code><a href="adt://A4H/sap/bc/adt/programs/programs/zabapgit/source/main#start=74">6</a></code></td>
+        <td><code>%_SEL_SCREEN_%_EXCOM_%</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code>74</code></td>
+    </tr>
+    <tr>
+        <td><code><a href="adt://A4H/sap/bc/adt/programs/programs/rsdbrunt/source/main#start=5251">5</a></code></td>
+        <td><code>%_BACK_1000</code></td>
+        <td><code>RSDBRUNT</code></td>
+        <td><code>RSDBRUNT</code></td>
+        <td><code>5251</code></td>
+    </tr>
+    <tr>
+        <td><code><a href="adt://A4H/sap/bc/adt/programs/includes/%3crepini%3e/source/main?context=%2fsap%2fbc%2fadt%2fprograms%2fprograms%2fzabapgit#start=21">4</a></code>
+        </td>
+        <td><code>%_BACK</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code><REPINI></code></td>
+        <td><code>21</code></td>
+    </tr>
+    <tr>
+        <td><code><a href="adt://A4H/sap/bc/adt/programs/includes/zabapgit_forms/source/main?context=%2fsap%2fbc%2fadt%2fprograms%2fprograms%2fzabapgit#start=253">3</a></code>
+        </td>
+        <td><code>OPEN_GUI</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code>ZABAPGIT_FORMS</code></td>
+        <td><code>253</code></td>
+    </tr>
+    <tr>
+        <td><code><a href="adt://A4H/sap/bc/adt/programs/includes/zabapgit_forms/source/main?context=%2fsap%2fbc%2fadt%2fprograms%2fprograms%2fzabapgit#start=222">2</a></code>
+        </td>
+        <td><code>RUN</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code>ZABAPGIT_FORMS</code></td>
+        <td><code>222</code></td>
+    </tr>
+    <tr>
+        <td><code><a href="adt://A4H/sap/bc/adt/programs/programs/zabapgit/source/main#start=62">1</a></code></td>
+        <td><code>START-OF-SELECTION</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code>ZABAPGIT</code></td>
+        <td><code>62</code></td>
+    </tr>
+</table>

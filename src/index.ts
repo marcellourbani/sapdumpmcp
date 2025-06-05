@@ -1,11 +1,6 @@
 import express from "express"
-import { Server } from "@modelcontextprotocol/sdk/server/index.js"
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js"
-import {
-  isInitializeRequest,
-  ListResourcesRequestSchema,
-  ReadResourceRequestSchema
-} from "@modelcontextprotocol/sdk/types.js"
+import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js"
 import { v4 } from "uuid"
 import { createServer } from "./mcpserver.js"
 
