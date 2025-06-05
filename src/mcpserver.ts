@@ -2,7 +2,6 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 import { createDumpService, SapDump } from "./dump.js"
 import { z } from "zod"
-import { CallToolResult } from "@modelcontextprotocol/sdk/types.js"
 export const createServer = async () => {
   const service = await createDumpService()
   const server = new McpServer({

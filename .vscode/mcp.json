@@ -1,0 +1,32 @@
+{
+  "inputs": [
+    {
+      "id": "ABAP server",
+      "type": "promptString",
+      "description": "Enter the ABAP server URL",
+      "default": "http://localhost:8000"
+    },
+    {
+      "id": "ABAP user",
+      "type": "promptString",
+      "description": "Enter the ABAP user name",
+      "default": "DEVELOPER"
+    },
+    {
+      "id": "ABAP password",
+      "type": "promptString",
+      "description": "Enter the user's password",
+      "default": ""
+    }
+  ],
+  "servers": {
+    "my-mcp-server": {
+      "url": "http://localhost:3000/mcp",
+      "headers": {
+        "Abap-Server": "${input:ABAP server}",
+        "Abap-User": "${input:ABAP user}",
+        "Abap-Password": "${input:ABAP password}"
+      }
+    }
+  }
+}

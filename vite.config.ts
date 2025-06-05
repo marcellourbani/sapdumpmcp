@@ -1,11 +1,11 @@
 import { defineConfig } from "vite"
 
-// import packageJson from "./package.json"
-//
-// const dependencies = Object.keys({
-//   ...packageJson.dependencies,
-//   ...packageJson.devDependencies
-// })
+import packageJson from "./package.json"
+
+const dependencies = Object.keys({
+  ...packageJson.dependencies
+  // ...packageJson.devDependencies
+})
 //
 // const noExternal = process.env.NODE_ENV === "production" ? dependencies : []
 
@@ -16,8 +16,6 @@ export default defineConfig({
     sourcemap: true,
     minify: false,
     rollupOptions: {}
-  }
-  //   ssr: {
-  //     noExternal
-  //   }
+  },
+  ssr: { noExternal: dependencies }
 })

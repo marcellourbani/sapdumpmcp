@@ -11,7 +11,8 @@
     "build": "vite build",
     "dev": "nodemon",
     "killinspector": "fuser -9 -k 6274/tcp",
-    "inspect": "npx --node-options=--inspect @modelcontextprotocol/inspector"
+    "inspect": "npx --node-options=--inspect @modelcontextprotocol/inspector",
+    "test": "jest"
   },
   "files": [
     "build"
@@ -21,14 +22,18 @@
   "license": "MIT",
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.13.0",
+    "@swc/jest": "^0.2.38",
     "@types/express": "^5.0.2",
+    "@types/jest": "^29.5.14",
     "abap-adt-api": "^6.2.1",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.10",
     "vite": "^6.3.5"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "fast-xml-parser": "^5.2.3",
     "uuid": "^11.1.0"
   }
 }
