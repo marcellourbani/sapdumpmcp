@@ -35,9 +35,16 @@
       "label": "inspect"
     },
     {
+      "type": "npm",
+      "script": "typewatch",
+      "problemMatcher": "$tsc-watch",
+      "isBackground": true,
+      "label": "typewatch"
+    },
+    {
       "type": "shell",
       "label": "dev",
-      "dependsOn": ["nodemon", "inspect"]
+      "dependsOn": ["nodemon", "inspect", "typewatch"]
     }
   ]
 }

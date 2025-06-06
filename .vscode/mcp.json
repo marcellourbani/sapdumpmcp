@@ -24,9 +24,10 @@
       "type": "http",
       "url": "http://localhost:3000/mcp",
       "headers": {
-        "Abap-Server": "${input:ABAP server}",
-        "Abap-User": "${input:ABAP user}",
-        "Abap-Password": "${input:ABAP password}"
+        "abap-server": "${input:ABAP server}",
+        "abap-user": "${input:ABAP user}",
+        "abap-password": "${input:ABAP password}",
+        "abap-language": "EN"
       }
     }
   }

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "typewatch": "tsc -w",
     "dev": "nodemon",
     "killinspector": "fuser -9 -k 6274/tcp",
     "inspect": "npx --node-options=--inspect @modelcontextprotocol/inspector",

@@ -44,7 +44,8 @@ export const parsexmlDump = (xml: string) => {
   const parsed = new XMLParser({
     ignoreAttributes: false,
     trimValues: false,
-    parseAttributeValue: true
+    parseAttributeValue: true,
+    removeNSPrefix: true
   }).parse(xml)
   const {
     chapters: { chapter },

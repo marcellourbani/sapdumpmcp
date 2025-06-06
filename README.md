@@ -7,6 +7,17 @@ The idea is to enable AI tools to access dumps and ask details about them like d
 
 Usually needs an [mcp.json](.vscode/mcp.json), whose format depends on the application. This is for visual studio code
 
+## Headers
+
+The SAP system details can be passed with headers:
+
+* abap-server
+* abap-user
+* abap-password
+* abap-language
+
+The default values can be set in a .env file for debugging, shouldn't be used in production
+
 ## Testing
 
 Running the *develop* launch configuration will:
@@ -17,7 +28,7 @@ Running the *develop* launch configuration will:
 
 you can test the server by connecting to the [mcp inspector](http://127.0.0.1:6274) and select transport type **Streamable HTTP** and URL **[http://localhost:3000/mcp](http://localhost:3000/mcp)**
 
-Will only work if your .env file points to a valid server
+Will only work if your .env file points to a valid server, as the inspector doesn't support headers based connections
 
 ## Vscode/Github copilot
 

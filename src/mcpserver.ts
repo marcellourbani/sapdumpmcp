@@ -2,8 +2,13 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 import { createDumpService, SapDump } from "./dump.js"
 import { z } from "zod"
-export const createServer = async () => {
-  const service = await createDumpService()
+export const createServer = async (
+  serverurl?: string,
+  user?: string,
+  password?: string,
+  language?: string
+) => {
+  const service = await createDumpService(serverurl, user, password, language)
   const server = new McpServer({
     name: "sapdump-mcp-server",
     version: "1.0.0"

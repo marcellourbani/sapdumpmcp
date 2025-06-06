@@ -9,11 +9,24 @@ app.use(express.json())
 
 const transports: Map<string, StreamableHTTPServerTransport> = new Map()
 
-const getTransport = async (sessionId: string, body: unknown) => {
-  const current = transports.get(sessionId)
+const getTransport = async (req: express.Request) => {
+  const sessionId = req.headers["mcp-session-id"]
+  const current = typeof sessionId === "string" && transports.get(sessionId)
   if (current) return current
-  if (!isInitializeRequest(body))
+  if (!isInitializeRequest(req.body))
     throw new Error("Invalid session ID or request body")
+
+  const {
+    "abap-server": serverurl,
+    "abap-user": user,
+    "abap-password": password,
+    "abap-language": language
+  } = req.headers
+  const url = typeof serverurl === "string" ? serverurl : undefined
+  const users = typeof user === "string" ? user : undefined
+  const passwords = typeof password === "string" ? password : undefined
+  const languages = typeof language === "string" ? language : undefined
+  const server = await createServer(url, users, passwords, languages)
 
   const newTransport = new StreamableHTTPServerTransport({
     sessionIdGenerator: () => v4(),
@@ -22,7 +35,6 @@ const getTransport = async (sessionId: string, body: unknown) => {
   newTransport.onclose = () =>
     newTransport.sessionId && transports.delete(newTransport.sessionId)
 
-  const server = await createServer()
   await server.connect(newTransport)
 
   return newTransport
@@ -30,8 +42,7 @@ const getTransport = async (sessionId: string, body: unknown) => {
 
 app.post("/mcp", async (req, res) => {
   try {
-    const sessionId = req.headers["mcp-session-id"] as string | undefined
-    const transport = await getTransport(sessionId || "", req.body)
+    const transport = await getTransport(req)
     await transport.handleRequest(req, res, req.body)
   } catch (error) {
     console.error("Error handling MCP request:", error)

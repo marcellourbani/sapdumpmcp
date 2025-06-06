@@ -9,16 +9,22 @@ export type SapDump = {
   program: string
 }
 
-const createClient = async () => {
-  const url = process.env.ABAP_ADT_URL
-  const user = process.env.ABAP_ADT_USER
-  const password = process.env.ABAP_ADT_PASSWORD
+const createClient = async (
+  url?: string,
+  user?: string,
+  password?: string,
+  language?: string
+) => {
+  url ??= process.env.ABAP_ADT_URL
+  user ??= process.env.ABAP_ADT_USER
+  password ??= process.env.ABAP_ADT_PASSWORD
+  language ??= process.env.ABAP_ADT_LANGUAGE
   if (!url || !user || !password) {
     throw new Error(
-      "Url and credentials for ADT client are not set in environment variables (ABAP_ADT_URL, ABAP_ADT_USER, ABAP_ADT_PASSWORD). Please set them before creating the client."
+      "Url and credentials for ADT client are must be set in call headers or environment variables (ABAP_ADT_URL, ABAP_ADT_USER, ABAP_ADT_PASSWORD). Please set them before creating the client."
     )
   }
-  const client = new ADTClient(url, user, password)
+  const client = new ADTClient(url, user, password, undefined, language)
   await client.login()
   return client
 }
@@ -54,7 +60,12 @@ class DumpService {
   }
 }
 
-export const createDumpService = async () => {
-  const client = await createClient()
+export const createDumpService = async (
+  serverurl?: string,
+  user?: string,
+  password?: string,
+  language?: string
+) => {
+  const client = await createClient(serverurl, user, password, language)
   return new DumpService(client)
 }

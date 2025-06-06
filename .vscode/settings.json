@@ -9,6 +9,9 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
   "editor.formatOnSave": true,
   "chat.mcp.enabled": true,
   "prettier.arrowParens": "avoid",
