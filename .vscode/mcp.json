@@ -20,7 +20,8 @@
     }
   ],
   "servers": {
-    "my-mcp-server": {
+    "abapdumps": {
+      "type": "http",
       "url": "http://localhost:3000/mcp",
       "headers": {
         "Abap-Server": "${input:ABAP server}",

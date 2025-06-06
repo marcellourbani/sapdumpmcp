@@ -11,7 +11,7 @@ export const createServer = async () => {
 
   server.tool(
     "list_sap_dumps",
-    "list sap short dumps generated when a program crashes",
+    "list sap short dumps generated when an ABAP program crashes",
     async () => {
       const dumps = await service.listDumps(true)
       return {
