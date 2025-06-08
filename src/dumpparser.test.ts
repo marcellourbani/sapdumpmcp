@@ -15,5 +15,18 @@ test("parse xml dump with empty links", () => {
   const xml = readFileSync("examples/dump1.xml", "utf-8")
   const text = readFileSync("examples/dump1_summary.txt", "utf-8")
   const parsed = parseDump(xml, text)
-  expect(parsed.chapters[0].lines[0].trim()).toBe("System environment")
+  const firstline = parsed.chapters
+    .get("System_environment")
+    ?.text.split("\n")[0]
+    .trim()
+  expect(firstline).toBe("SAP Release..... 757")
+})
+
+test("parse xml dump with split lines in source code", () => {
+  const xml = readFileSync("examples/dump1.xml", "utf-8")
+  const text = readFileSync("examples/dump1_summary.txt", "utf-8")
+  const parsed = parseDump(xml, text)
+  const joinedText = parsed.chapters.get("Source_Code_Extract")?.text
+  const hasjoined = joinedText?.match(/abap_true\. " end of stack/)
+  expect(hasjoined).toBeTruthy()
 })

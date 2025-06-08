@@ -29,6 +29,45 @@ const xmlDump = z.object({
   )
 })
 
+export const chapterNames = {
+  kap0: "Short_Text",
+  kap1: "What_happened",
+  kap2: "What_can_you_do",
+  kap3: "Error_analysis",
+  kap4: "How_to_correct_the_error",
+  kap5: "System_environment",
+  kap6: "User_and_Transaction",
+  kap6a: "Server-Side_Connection_Information",
+  kap6b: "Client-Side_Connection_Information",
+  kap6c: "AMC_Context_Information",
+  kap6d: "APC_Context_Information",
+  kap7: "Information_on_where_terminated",
+  kap8: "Source_Code_Extract",
+  kap9: "Contents_of_system_fields",
+  kap10: "Chosen_Variables",
+  kap11: "Active_Calls/Events",
+  kap12: "Internal_notes",
+  kap13: "Active_Calls_in_SAP_Kernel",
+  kap14: "List_of_ABAP_programs_affected",
+  kap16: "Directory_of_Application_Tables",
+  kap19: "ABAP_Control_Blocks",
+  kap21: "Spool_Error_Information",
+  kap22: "Application_Calls",
+  kap23: "Application_Information",
+  kap24: "Termination_Point_Information_in_transformation",
+  kap25: "Section_of_Source_Code_in_transformation_changed",
+  kap26: "VMC_Java_Trace",
+  kap27: "Lock_Shared_Objects",
+  kap28: "Chain_of_Exception_Objects",
+  kap29: "Database_Interface_Information"
+} as const
+
+type ChapterName = keyof typeof chapterNames
+
+const getChapterName = (kap: string): string => {
+  return chapterNames[kap as keyof typeof chapterNames] || kap
+}
+
 const ok = <K extends string, R extends Record<K, unknown>>(raw: R): [K] =>
   Object.keys(raw) as [K]
 
@@ -74,10 +113,44 @@ const splitLines = (
   const ranges = starts
     .map((start, index): [number, number] => [
       start,
-      starts[index + 1] ? starts[index + 1] : lines.length + 1
+      starts[index + 1] ? starts[index + 1] - 1 : lines.length + 1
     ])
     .map(([start, end]) => [start, lines.slice(start - 1, end)] as const)
   return ranges.reduce((acc, [start, ls]) => ({ ...acc, [start]: ls }), {})
+}
+
+type Chapter = {
+  name: string
+  title: string
+  category: string
+  text: string
+}
+
+const joinSplitLines = (lines: string[]) => {
+  const res: string[] = []
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i]
+    while (line.match(/\\$/) && lines[i + 1]?.match(/^[^\s]/)) {
+      line = `${line.substring(0, line.length - 1)}${lines[i + 1]}`
+      i++
+    }
+    res.push(line)
+  }
+
+  return res
+}
+
+const cleanLines = (
+  key: ChapterName | string,
+  title: string,
+  lines: string[]
+) => {
+  const res = lines[0]?.trim() === title ? lines.slice(1) : lines
+  while (res.length && res[res.length - 1].match(/^[-\s]*$/))
+    res.splice(res.length - 1)
+  if (key === "Source_Code_Extract") return joinSplitLines(res)
+  return res
 }
 
 export const parseDump = (xml: string, text: string) => {
@@ -86,10 +159,13 @@ export const parseDump = (xml: string, text: string) => {
     text,
     parsed.chapters.map(c => c.line)
   )
-  const chapters = parsed.chapters.map(chapter => ({
-    lines: splits[chapter.line] || [],
-    ...chapter
-  }))
+  const chapters = new Map<string, Chapter>()
+  parsed.chapters.forEach(chapter => {
+    const { name, category, title } = chapter
+    const key = getChapterName(chapter.name)
+    const lines = cleanLines(key, title, splits[chapter.line] || [])
+    chapters.set(key, { name, category, title, text: lines.join("\n") })
+  })
 
   return {
     ...parsed,
