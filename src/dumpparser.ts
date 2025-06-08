@@ -62,14 +62,28 @@ export const chapterNames = {
   kap29: "Database_Interface_Information"
 } as const
 
+const ok = <R extends Record<string, unknown>, K extends keyof R = keyof R>(
+  raw: R
+): K[] => Object.keys(raw) as K[]
+
+function unionOfLiterals<T extends string | number>(constants: readonly T[]) {
+  const literals = constants.map(x => z.literal(x)) as unknown as readonly [
+    z.ZodLiteral<T>,
+    z.ZodLiteral<T>,
+    ...z.ZodLiteral<T>[]
+  ]
+  return z.union(literals)
+}
+
+export const chapterNameType = unionOfLiterals(
+  ok(chapterNames).map(k => chapterNames[k])
+)
+
 type ChapterName = keyof typeof chapterNames
 
 const getChapterName = (kap: string): string => {
   return chapterNames[kap as keyof typeof chapterNames] || kap
 }
-
-const ok = <K extends string, R extends Record<K, unknown>>(raw: R): [K] =>
-  Object.keys(raw) as [K]
 
 const xmlAttrs = (raw: Record<string, unknown>): Record<string, unknown> =>
   ok(raw)
@@ -109,7 +123,10 @@ const splitLines = (
   starts: number[]
 ): Record<number, string[]> => {
   starts = starts.sort((a, b) => a - b)
-  const lines = text.split("\n").map(line => line.replace(/^\|(.*)\|$/, "$1"))
+  const lines = text
+    .replaceAll(/\r/g, "")
+    .split("\n")
+    .map(line => line.replace(/^\|(.*)\|$/, "$1"))
   const ranges = starts
     .map((start, index): [number, number] => [
       start,
@@ -172,3 +189,5 @@ export const parseDump = (xml: string, text: string) => {
     chapters
   }
 }
+
+export type SapDumpDetailed = ReturnType<typeof parseDump>

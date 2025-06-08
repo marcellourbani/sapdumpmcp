@@ -18,12 +18,12 @@ Accept: application/vnd.sap.adt.runtime.dump.v1+xml
 
 ###
 # @name getDump_unformatted
-GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/{{$dotenv ABAP_APITEST_DUMPID}}/unformatted
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/{{$dotenv ABAP_APITEST_DUMPID}}/unformatted?sap-language=EN
 Authorization: Basic {{$dotenv ABAP_ADT_USER}} {{$dotenv ABAP_ADT_PASSWORD}}
 Accept: text/plain
 ###
 ##
 # @name getDump_unformatted_de
-GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/{{$dotenv ABAP_APITEST_DUMPID}}/unformatted
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/{{$dotenv ABAP_APITEST_DUMPID}}/unformatted?sap_language=DE
 Authorization: Basic {{$dotenv ABAP_ADT_USER}} {{$dotenv ABAP_ADT_PASSWORD}}
 Accept: text/plain

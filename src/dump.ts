@@ -1,5 +1,6 @@
 import { ADTClient, Dump } from "abap-adt-api"
 import { config } from "dotenv"
+import { parseDump, SapDumpDetailed } from "./dumpparser.ts"
 config()
 
 export type SapDump = {
@@ -7,6 +8,7 @@ export type SapDump = {
   text: string
   error: string
   program: string
+  timestamp: string
 }
 
 const createClient = async (
@@ -30,18 +32,21 @@ const createClient = async (
 }
 
 const formatDump = (dump: Dump): SapDump => {
-  const { id, text } = dump
+  const { id: rawid, text } = dump
+  const id = decodeURIComponent(rawid)
+  const timestamp = id.replace(/.*\//, "").substring(0, 14)
   const error =
     dump.categories.find(c => c.label.match(/error/))?.term || "Unknown error"
   const program =
     dump.categories.find(c => c.label.match(/program/))?.term ||
     "Unknown program"
-  return { id: decodeURIComponent(id), text, error, program }
+  return { id, text, error, program, timestamp }
 }
 
 class DumpService {
   constructor(private client: ADTClient) {}
   private dumps: SapDump[] = []
+  private detailedDumps: Map<string, SapDumpDetailed> = new Map()
   public listDumps = async (refresh = false) => {
     if (this.dumps.length === 0 || refresh) {
       const dumps = await this.client.dumps()
@@ -50,12 +55,32 @@ class DumpService {
     return this.dumps
   }
 
-  public getDump = async (id: string) => {
+  public getHtmlDump = async (id: string) => {
     const found = this.dumps.find(d => d.id === id)
     if (found) return found
     const dumps = await this.listDumps(true)
     const dump = dumps.find(d => d.id === id)
     if (!dump) throw new Error(`Dump with ID ${id} not found`)
+    return dump
+  }
+
+  public getDumpDetails = async (id: string) => {
+    // const cached = this.detailedDumps.get(id)
+    // if (cached) return cached
+    const baseId = encodeURIComponent(
+      id.replace(/\/sap\/bc\/adt\/vit\/runtime\/dumps\//, "")
+    )
+    const xml = await this.client.httpClient.request(
+      `/sap/bc/adt/runtime/dump/${baseId}`,
+      { headers: { Accept: "application/vnd.sap.adt.runtime.dump.v1+xml" } }
+    )
+    const txt = await this.client.httpClient.request(
+      `/sap/bc/adt/runtime/dump/${baseId}/formatted`,
+      { headers: { Accept: "text/plain" } }
+    )
+
+    const dump = parseDump(xml.body, txt.body)
+    this.detailedDumps.set(id, dump)
     return dump
   }
 }
