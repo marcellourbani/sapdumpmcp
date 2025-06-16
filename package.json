@@ -1,6 +1,6 @@
 {
   "name": "sapdumpmcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This will enable MCP clients to analyse SAP dumps. Inspired by [mcp-windbg](https://github.com/svnscha/mcp-windbg), explained in [this blog](https://svnscha.de/posts/ai-meets-windbg/)",
   "main": "build/index.js",
   "type": "module",
@@ -20,7 +20,11 @@
     "build"
   ],
   "keywords": [],
-  "author": "",
+  "author": "Marcello Urbani",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcellourbani/sapdumpmcp"
+  },
   "license": "MIT",
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.14.2",
