@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import express from "express"
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js"
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js"
@@ -70,4 +71,5 @@ const handleSessionRequest = async (
 }
 app.get("/mcp", handleSessionRequest)
 app.delete("/mcp", handleSessionRequest)
-app.listen(3000, () => console.log("MCP server is running on port 3000"))
+const port = process.env.PORT ?? 3000
+app.listen(port, () => console.log(`MCP server is running on port ${port}`))

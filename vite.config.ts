@@ -6,8 +6,8 @@ const dependencies = Object.keys({
   ...packageJson.dependencies
   // ...packageJson.devDependencies
 })
-//
 // const noExternal = process.env.NODE_ENV === "production" ? dependencies : []
+const noExternal = []
 
 export default defineConfig({
   build: {
@@ -17,5 +17,5 @@ export default defineConfig({
     minify: false,
     rollupOptions: {}
   },
-  ssr: { noExternal: dependencies }
+  ssr: { noExternal }
 })

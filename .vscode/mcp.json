@@ -15,6 +15,7 @@
     {
       "id": "ABAP password",
       "type": "promptString",
+      "password": true,
       "description": "Enter the user's password",
       "default": ""
     }

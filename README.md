@@ -5,7 +5,17 @@ Inspired by [mcp-windbg](https://github.com/svnscha/mcp-windbg), explained in [t
 
 The idea is to enable AI tools to access dumps and ask details about them like description, call stack,...
 
-Usually needs an [mcp.json](.vscode/mcp.json), whose format depends on the application. This is for visual studio code
+The client usually needs a configuration file, like [mcp.json](.vscode/mcp.json) for visual studio code, whose format depends on the application, see below for more details
+
+You can run the server with
+
+```bash
+npx sapdumpmcp
+```
+
+## demo
+
+![Copilot demo](media/demo.gif)
 
 ## Headers
 
@@ -29,6 +39,19 @@ Running the *develop* launch configuration will:
 you can test the server by connecting to the [mcp inspector](http://127.0.0.1:6274) and select transport type **Streamable HTTP** and URL **[http://localhost:3000/mcp](http://localhost:3000/mcp)**
 
 Will only work if your .env file points to a valid server, as the inspector doesn't support headers based connections
+
+## Environment variables
+
+Instead of using http headers, the server can be configured to use rnvironment variables (perhaps stored in a .env file)
+This will allow anyone with access to the server to run queries, so it's not recommended unless you restrict access in some other way
+The relevant variables are:
+
+* ABAP_ADT_URL
+* ABAP_ADT_USER
+* ABAP_ADT_PASSWORD
+* PORT
+
+By default the server will listen to port 3000
 
 ## Vscode/Github copilot
 
