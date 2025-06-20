@@ -1,9 +1,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
-import { createDumpService, SapDump } from "./dump.js"
+import { createDumpService } from "./dump.js"
 import { z } from "zod"
 import { chapterNameType } from "./dumpparser.ts"
-import { ServerNotificationSchema } from "@modelcontextprotocol/sdk/types.js"
 
 const listdumpsdescription = `list sap short dumps generated when an ABAP program crashes
 Each entry contains the ID of the dump, the error message, and the program that caused the dump.
