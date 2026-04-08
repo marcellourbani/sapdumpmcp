@@ -5,6 +5,12 @@ Authorization: Basic {{$dotenv ABAP_ADT_USER}} {{$dotenv ABAP_ADT_PASSWORD}}
 Accept: application/atom+xml;type=feed
 
 ###
+# @name listmydumps
+GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dumps?$query=and%28%20equals%28%20user%2c%20{{$dotenv ABAP_ADT_USER}}%20%29%20%29&$inlinecount=allpages&$top=50&from=20260408094759
+Authorization: Basic {{$dotenv ABAP_ADT_USER}} {{$dotenv ABAP_ADT_PASSWORD}}
+Accept: application/atom+xml;type=feed
+
+###
 # @name getDump
 GET {{$dotenv ABAP_ADT_URL}}/sap/bc/adt/runtime/dump/{{$dotenv ABAP_APITEST_DUMPID}}
 Authorization: Basic {{$dotenv ABAP_ADT_USER}} {{$dotenv ABAP_ADT_PASSWORD}}
